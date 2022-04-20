@@ -7,6 +7,17 @@ public class Terrain {
     private String region;
     private String ville;
 
+    public Terrain() {
+    }
+
+    public Terrain(int id, double latitude, double longitude, String region, String ville) {
+        this.id = id;
+        this.latitude = latitude;
+        this.longitude = longitude;
+        this.region = region;
+        this.ville = ville;
+    }
+
     public int getId() {
         return id;
     }
