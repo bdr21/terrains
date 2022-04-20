@@ -37,13 +37,12 @@ public class TerrainDaoImpl implements TerrainDao {
         Connection cnx=Connect.getConnection();
         Random rand = new Random();
         try {
-            PreparedStatement newPST = cnx.prepareStatement("insert into terrains values (?,?,?,?,?,?)");
+            PreparedStatement newPST = cnx.prepareStatement("insert into terrains values (?,?,?,?,?)");
             newPST.setInt(1, rand.nextInt(100000));
-            newPST.setString(2, c.getNom());
-            newPST.setString(3, c.getPrenom());
-            newPST.setString(4, c.getEmail());
-            newPST.setString(5, c.getPassword());
-            newPST.setString(6, c.getAdresse());
+            newPST.setDouble(2, c.getLatitude());
+            newPST.setDouble(3, c.getLongitude());
+            newPST.setString(4, c.getRegion());
+            newPST.setString(5, c.getVille());
             int success = newPST.executeUpdate();
             if (success == 1) return true;
             if (success == 0) return false;
@@ -58,9 +57,11 @@ public class TerrainDaoImpl implements TerrainDao {
         Connection cnx=Connect.getConnection();
         try {
             PreparedStatement newPST =
-                    cnx.prepareStatement("update terrains set nom=? , prenom=? where id=?");
-            newPST.setString(1, c.getNom());
-            newPST.setString(2, c.getPrenom());
+                    cnx.prepareStatement("update terrains set  latitude=? , longitude=? , region= ? ,ville = ? where id=?");
+            newPST.setDouble(2, c.getLatitude());
+            newPST.setDouble(3, c.getLongitude());
+            newPST.setString(4, c.getRegion());
+            newPST.setString(5, c.getVille());
             newPST.setInt(3, c.getId());
             int success = newPST.executeUpdate();
             if (success == 1) return true;
@@ -77,12 +78,12 @@ public class TerrainDaoImpl implements TerrainDao {
         Terrain cl = null;
         try {
             Statement newST = cnx.createStatement();
-            ResultSet rs = newST.executeQuery("Select * from Terrains where id =" + idc);
+            ResultSet rs = newST.executeQuery("Select * from terrains where id =" + idc);
             while (rs.next()) {
                 cl = new Terrain
                         (rs.getInt("id"),
-                                rs.getString("nom"), rs.getString("prenom"), rs.getString("adresse"),
-                                rs.getString("email"), rs.getString("password"));
+                                rs.getDouble("latitude"), rs.getDouble("longitude"), rs.getString("region"),
+                                rs.getString("ville"));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -97,13 +98,13 @@ public class TerrainDaoImpl implements TerrainDao {
         try {
             Statement newST = cnx.createStatement();
             String sql = "Select * from Terrains where"
-                    + " email = '" + email + "' and password = '" + password + "'";
+                    + " latitude = '" + lat + "' and longitude = '" + lon + "'";
             ResultSet rs = newST.executeQuery(sql);
             while (rs.next()) {
                 cl = new Terrain
                         (rs.getInt("id"),
-                                rs.getString("nom"), rs.getString("prenom"), rs.getString("adresse"),
-                                rs.getString("email"), rs.getString("password"));
+                                rs.getDouble("latitude"), rs.getDouble("longitude"), rs.getString("region"),
+                                rs.getString("ville"));
             }
         } catch (SQLException e) {
             e.printStackTrace();
