@@ -14,7 +14,7 @@ public class Test {
 //        for(Client c:listc) {
 //            System.out.println(c);
 //        }
-        Client c = new Client(5,"koko","15667");
-        cdi.updateClient(c);
+        Client c = new Client("5","koko","15667")
+        cdi.updateClient(c)
     }
 }

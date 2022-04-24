@@ -1,6 +1,8 @@
 package models;
 
-public class Client {
+import java.io.Serializable;
+
+public class Client implements Serializable {
 
     // fields
     private int id;
@@ -24,6 +26,7 @@ public class Client {
     public String getAdresse() { return adresse; }
     public void setAdresse(String adresse) { this.adresse = adresse; }
 
+    public Client() {};
     // constructors
     public Client(int id, String email, String password) {
         super();
