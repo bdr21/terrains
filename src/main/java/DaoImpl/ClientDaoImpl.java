@@ -125,4 +125,20 @@ public class ClientDaoImpl implements ClientDao {
         }
         return false;
     }
+
+    @Override
+    public boolean deleteClients(String ids) {
+        Connection cnx=Connect.getConnection();
+        try {
+            String query = "delete from clients where id in (" + ids +")";
+            System.out.println(query);
+            PreparedStatement newPST = cnx.prepareStatement(query);
+            int success = newPST.executeUpdate();
+            if (success == 1) return true;
+            if (success == 0) return false;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
 }

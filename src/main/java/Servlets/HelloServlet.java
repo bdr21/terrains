@@ -1,4 +1,4 @@
-package com.example.projet_s2;
+package Servlets;
 
 import java.io.*;
 import jakarta.servlet.http.*;

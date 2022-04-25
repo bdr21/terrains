@@ -21,14 +21,13 @@
     boolean status= cdi.addClient(c);
     if(status)
         System.out.println("You are successfully registered");
-
 %>
 <form action="signup.jsp" method="POST">
     <input type="text" name="lname" placeholder="Lasttt Name..." /><br/>
-    <input type="text" name="fname" value="First Name..." onclick="this.value=''"/><br/>
-    <input type="text" name="uemail"  value="Email ID..." onclick="this.value=''"/><br/>
-    <input type="text" name="uaddress"  value="Ur Address..." onclick="this.value=''"/><br/>
-    <input type="password" name="upass"  value="Password..." onclick="this.value=''"/><br/>
+    <input type="text" name="fname" placeholder="First Name..." onclick="this.value=''"/><br/>
+    <input type="text" name="uemail"  placeholder="Email ID..." onclick="this.value=''"/><br/>
+    <input type="text" name="uaddress"  placeholder="Ur Address..." onclick="this.value=''"/><br/>
+    <input type="password" name="upass"  placeholder="Password..." onclick="this.value=''"/><br/>
     <input type="submit" value="register"/>
 </form>
 </body>
