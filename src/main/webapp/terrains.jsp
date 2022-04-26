@@ -15,8 +15,8 @@
 <%--<%@page import="com.javawebapp.beans.UserBeans"%>--%>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.List"%>
-<%@ page import="DAO.TerrainDao" %>
-<%@ page import="DaoImpl.TerrainDaoImpl" %>
+<%@ page import="dao.TerrainDao" %>
+<%@ page import="dao.impl.TerrainDaoImpl" %>
 <%@ page import="models.Terrain" %>
 <%--<%@page import="com.javawebapp.utility.ServletUtility"%>--%>
 <%--<%@ include file="header.jsp"%>--%>

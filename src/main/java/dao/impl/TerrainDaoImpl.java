@@ -1,7 +1,6 @@
-package DaoImpl;
+package dao.impl;
 
-import DAO.TerrainDao;
-import DAO.TerrainDao;
+import dao.TerrainDao;
 import db.Connect;
 import models.Terrain;
 

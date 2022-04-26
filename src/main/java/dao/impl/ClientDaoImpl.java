@@ -1,6 +1,6 @@
-package DaoImpl;
+package dao.impl;
 
-import DAO.ClientDao;
+import dao.ClientDao;
 import db.Connect;
 import models.Client;
 
