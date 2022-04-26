@@ -22,8 +22,9 @@ public class ChangeTerrain extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-        int id =  Integer.parseInt(request.getParameter("id"));
+//        String id_param = request.getParameter("id");
+//        int id = 0;
+//        if ( !(id_param == null || id_param.equals("")) ) id =  Integer.parseInt(request.getParameter("id"));
         double latitude =  Double.parseDouble(request.getParameter("lat"));
         double longitude = Double.parseDouble(request.getParameter("lon"));
         String addresse = request.getParameter("addr");
@@ -38,8 +39,7 @@ public class ChangeTerrain extends HttpServlet {
 //        String ville = request.getParameter("ville");
 //        String region = request.getParameter("region");
 
-        System.out.println(id);
-        Terrain terrain = new Terrain(id,latitude,longitude,region,ville);
+        Terrain terrain = new Terrain(latitude,longitude,region,ville);
 
         TerrainDao terrainDao = new TerrainDaoImpl();
         terrainDao.addTerrain(terrain);

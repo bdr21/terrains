@@ -18,7 +18,7 @@
 <div id="map"></div>
 <b>Coordonnées</b>
 <form action="ChangeTerrain" method="post" >
-    <label class="id">l' ID <input type="number" name="id" id="id" size=12 value=""></label>
+<%--    <label class="id">l' ID <input type="number" name="id" id="id" size=12 value=""></label>--%>
     <label>latitude<input type="text" name="lat" id="lat" size=12 value="0.0" onchange="traiterOnChange()"></label>
     <label>longitude<input type="text" name="lon" id="lon" size=12 value="0.0" onchange="traiterOnChange()"></label>
     <label>Ville<input type="text" name="ville" id="ville" value=""  size="58" readonly/></label>
