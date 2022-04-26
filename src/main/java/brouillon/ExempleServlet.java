@@ -1,8 +1,8 @@
 package brouillon;
 
-import DAO.ClientDao;
+import dao.ClientDao;
 import models.Client;
-import DaoImpl.ClientDaoImpl;
+import dao.impl.ClientDaoImpl;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;

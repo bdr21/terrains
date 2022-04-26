@@ -1,14 +1,13 @@
 package Servlets;
 
-import DAO.TerrainDao;
-import DaoImpl.TerrainDaoImpl;
+import dao.TerrainDao;
+import dao.impl.TerrainDaoImpl;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
 import models.Terrain;
 
 import java.io.IOException;

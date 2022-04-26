@@ -1,5 +1,5 @@
-<%@ page import="DAO.ClientDao" %>
-<%@ page import="DaoImpl.ClientDaoImpl" %>
+<%@ page import="dao.ClientDao" %>
+<%@ page import="dao.impl.ClientDaoImpl" %>
 <%@ page import="models.Client" %><%--
   Created by IntelliJ IDEA.
   User: DELL
