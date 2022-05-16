@@ -63,7 +63,7 @@
                 console.log(myArr)
                 document.getElementById('addr').value = myArr[0].display_name;
                 document.getElementById('ville').value = myArr[0].address.city
-                document.getElementById('region').value = myArr[0].address.state_district
+                document.getElementById('region').value = myArr[0].address.region
 
             }
         };
