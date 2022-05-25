@@ -22,6 +22,7 @@
        </c:when>
        <c:otherwise>
            <h1>HOOOOOOOOOOME</h1>
+           Servlet Version: <%= application.getMajorVersion() %>.<%= application.getMinorVersion() %>
        </c:otherwise>
    </c:choose>
 
