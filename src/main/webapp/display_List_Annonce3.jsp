@@ -31,36 +31,6 @@
 </head>
 
 <body>
-<div class="listings-sidebar">
-    <div class="search-area default-ad-search">
-        <form action="AnnonceList" method="GET">
-            <div class="form-group">
-                <input type="text" placeholder="chercher par titre" class="form-control" name="title">
-            </div><!-- ends: .form-group -->
-
-            <input type="submit" class="btn btn-gradient btn-gradient-two btn-block btn-icon icon-right m-top-40">Search Filter <span class="la la-long-arrow-right"></span></input>
-        </form><!-- ends: form -->
-    </div><!-- ends: .default-ad-search -->
-    <div class="search-area default-ad-search">
-        <form action="AnnonceList" method="GET">
-
-            <div class="form-group p-bottom-10">
-                <div class="price-range rs-primary">
-                    <p class="d-flex justify-content-between">
-                        <span>Price Range: </span>
-                        <span class="amount"></span>
-                    </p>
-                    <input type="number" placeholder="prix" name="price" class="form-control">
-                    <div class="slider-range"></div>
-                </div><!-- ends: .price-range -->
-            </div><!-- ends: .form-group -->
-
-
-            <input type="submit" class="btn btn-gradient btn-gradient-two btn-block btn-icon icon-right m-top-40">Search Filter <span class="la la-long-arrow-right"></span></input>
-        </form><!-- ends: form -->
-    </div><!-- ends: .default-ad-search -->
-</div>
-
 <div class="col-lg-12 listing-items">
     <div class="row">
         <div class="col-lg-8 order-0 order-lg-1">
@@ -111,30 +81,30 @@
                     </div><!-- ends: .col-lg-12 -->
                 </c:forEach>
             </div><!-- end .atbd_content_upper -->
-        </article><!-- atbd_single_listing_wrapper -->
-    </div>
-</div><!-- ends: .col-lg-12 -->
+            </article><!-- atbd_single_listing_wrapper -->
+        </div>
+    </div><!-- ends: .col-lg-12 -->
 </div>
 </div><!-- ends: .col-lg-8 -->
 </div>
 </div><!-- ends: .listing-items -->
 <%--For displaying Previous link except for the 1st page --%>
 <c:if test="${currentPage != 1}">
-<c:choose>
-    <c:when test="${typeRequete== 'titre'}">
-        <td><a href="AnnonceList?page=${currentPage - 1}&title=${titre}">Previous</a></td>
-    </c:when>
-    <c:when test="${typeRequete == 'price'}">
-        <td><a href="AnnonceList?page=${currentPage - 1}&price=${price}">Previous</a></td>
-    </c:when>
-    <c:when test="${typeRequete == 'rien'}">
-        <td><a href="AnnonceList?page=${currentPage - 1}">Previous</a></td>
-    </c:when>
-    <c:otherwise>
+    <c:choose>
+        <c:when test="${typeRequete== 'titre'}">
+            <td><a href="AnnonceList?page=${currentPage - 1}&title=${titre}">Previous</a></td>
+        </c:when>
+        <c:when test="${typeRequete == 'price'}">
+            <td><a href="AnnonceList?page=${currentPage - 1}&price=${price}">Previous</a></td>
+        </c:when>
+        <c:when test="${typeRequete == 'rien'}">
+            <td><a href="AnnonceList?page=${currentPage - 1}">Previous</a></td>
+        </c:when>
+        <c:otherwise>
 
-        Driving nothing I at Home......
-    </c:otherwise>
-</c:choose>
+            Driving nothing I at Home......
+        </c:otherwise>
+    </c:choose>
 </c:if>
 <%--For displaying Page numbers. The when condition does not display
             a link for the current page--%>

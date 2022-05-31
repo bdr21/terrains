@@ -66,4 +66,24 @@ public class Terrain {
     public void setVille(String ville) {
         this.ville = ville;
     }
+
+    @Override
+    public String toString() {
+        return "Terrain{" +
+                "id=" + id +
+                ", latitude=" + latitude +
+                ", longitude=" + longitude +
+                ", region='" + region + '\'' +
+                ", ville='" + ville + '\'' +
+                ", adresse='" + adresse + '\'' +
+                '}';
+    }
+
+    public String getAdresse() {
+        return adresse;
+    }
+
+    public void setAdresse(String adresse) {
+        this.adresse = adresse;
+    }
 }
