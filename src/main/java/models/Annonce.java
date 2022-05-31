@@ -1,30 +1,32 @@
 package models;
 
 import java.sql.Date;
-import java.sql.Time;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 
 public class Annonce {
     private int id;
     private Client possesseur;
-    private Terrain terrain;
-    // annonce metadata
-    private String thumbnail, gallerie;
+    // video metadata
     private String title, description, tags, video_url;
     private int price;
-    private Timestamp dateDePub;
+    private long dateDePub;
     // contact info
     private String telephone_number, email, twitter, facebook, instagram;
+    // localisation
+    private double latitude, longitude;
+    private String ville, region, adresse;
 
-    public Annonce(int id, Client possesseur, String type, Timestamp dateDePub) {
+//    private String type ; //vente ou location ou demande
+
+    public Annonce(int id, Client possesseur, String type, long dateDePub) {
         this.id = id;
         this.possesseur = possesseur;
         this.dateDePub = dateDePub;
 //        this.type = type;
     }
 
-    public Annonce(int id, Client possesseur, String title, String description, String tags, String video_url, String thumbnail, String gallerie, int price, Timestamp dateDePub, String telephone_number, String email, String twitter, String facebook, String instagram, Terrain terrain) {
+    public Annonce(int id, Client possesseur, String title, String description, String tags, String video_url, int price, long dateDePub, String telephone_number, String email, String twitter, String facebook, String instagram, double latitude, double longitude, String ville, String region, String adresse) {
         this.id = id;
         this.possesseur = possesseur;
         this.title = title;
@@ -38,33 +40,11 @@ public class Annonce {
         this.twitter = twitter;
         this.facebook = facebook;
         this.instagram = instagram;
-        this.terrain = terrain;
-        this.thumbnail = thumbnail;
-        this.gallerie = gallerie;
-    }
-
-    public String getThumbnail() {
-        return thumbnail;
-    }
-
-    public void setThumbnail(String thumbnail) {
-        this.thumbnail = thumbnail;
-    }
-
-    public String getGallerie() {
-        return gallerie;
-    }
-
-    public void setGallerie(String gallerie) {
-        this.gallerie = gallerie;
-    }
-
-    public Terrain getTerrain() {
-        return terrain;
-    }
-
-    public void setTerrain(Terrain terrain) {
-        this.terrain = terrain;
+        this.latitude = latitude;
+        this.longitude = longitude;
+        this.ville = ville;
+        this.region = region;
+        this.adresse = adresse;
     }
 
     public String getTitle() {
@@ -147,6 +127,46 @@ public class Annonce {
         this.instagram = instagram;
     }
 
+    public double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
+    }
+
+    public double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
+    }
+
+    public String getVille() {
+        return ville;
+    }
+
+    public void setVille(String ville) {
+        this.ville = ville;
+    }
+
+    public String getRegion() {
+        return region;
+    }
+
+    public void setRegion(String region) {
+        this.region = region;
+    }
+
+    public String getAdresse() {
+        return adresse;
+    }
+
+    public void setAdresse(String adresse) {
+        this.adresse = adresse;
+    }
+
     public int getId() {
         return id;
     }
@@ -163,11 +183,11 @@ public class Annonce {
         this.possesseur = possesseur;
     }
 
-    public Timestamp getDateDePub() {
+    public long getDateDePub() {
         return dateDePub;
     }
 
-    public void setDateDePub(Timestamp dateDePub) {
+    public void setDateDePub(long dateDePub) {
         this.dateDePub = dateDePub;
     }
 
@@ -175,6 +195,7 @@ public class Annonce {
     public String toString() {
         return "Annonce{" +
                 "id=" + id +
+                ", possesseur=" + possesseur +
                 ", title='" + title + '\'' +
                 ", description='" + description + '\'' +
                 ", tags='" + tags + '\'' +
@@ -186,7 +207,11 @@ public class Annonce {
                 ", twitter='" + twitter + '\'' +
                 ", facebook='" + facebook + '\'' +
                 ", instagram='" + instagram + '\'' +
-                ", terrain=" + terrain.toString() +
-                ", possesseur=" + possesseur.toString() ;
+                ", latitude=" + latitude +
+                ", longitude=" + longitude +
+                ", ville='" + ville + '\'' +
+                ", region='" + region + '\'' +
+                ", adresse='" + adresse + '\'' +
+                '}';
     }
 }
