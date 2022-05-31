@@ -16,12 +16,18 @@ public class Annonce {
     private Timestamp dateDePub;
     // contact info
     private String telephone_number, email, twitter, facebook, instagram;
-
+    private String type;
     public Annonce(int id, Client possesseur, String type, Timestamp dateDePub) {
         this.id = id;
         this.possesseur = possesseur;
         this.dateDePub = dateDePub;
-//        this.type = type;
+        this.type = type;
+    }
+    public Annonce(int id, Client possesseur, Timestamp dateDePub) {
+        this.id = id;
+        this.possesseur = possesseur;
+        this.dateDePub = dateDePub;
+
     }
 
     public Annonce(int id, Client possesseur, String title, String description, String tags, String video_url, String thumbnail, String gallerie, int price, Timestamp dateDePub, String telephone_number, String email, String twitter, String facebook, String instagram, Terrain terrain) {
@@ -188,5 +194,13 @@ public class Annonce {
                 ", instagram='" + instagram + '\'' +
                 ", terrain=" + terrain.toString() +
                 ", possesseur=" + possesseur.toString() ;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 }
