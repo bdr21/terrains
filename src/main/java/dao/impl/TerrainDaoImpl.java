@@ -22,7 +22,7 @@ public class TerrainDaoImpl implements TerrainDao {
                 Terrain cl = new Terrain
                         (rs.getInt("id"),
                         rs.getDouble("latitude"), rs.getDouble("longitude"),
-                        rs.getString("region"), rs.getString("ville"));
+                        rs.getString("region"), rs.getString("ville") ,rs.getString("adresse"));
                 lc.add(cl);
             }
         } catch (SQLException e) {
@@ -37,7 +37,7 @@ public class TerrainDaoImpl implements TerrainDao {
         Random rand = new Random();
         try {
             PreparedStatement newPST = cnx.prepareStatement("insert into terrains values (?,?,?,?,?)");
-            newPST.setInt(1, rand.nextInt(100000));
+            newPST.setInt(1, c.getId());
             newPST.setDouble(2, c.getLatitude());
             newPST.setDouble(3, c.getLongitude());
             newPST.setString(4, c.getRegion());
@@ -82,7 +82,7 @@ public class TerrainDaoImpl implements TerrainDao {
                 cl = new Terrain
                         (rs.getInt("id"),
                                 rs.getDouble("latitude"), rs.getDouble("longitude"), rs.getString("region"),
-                                rs.getString("ville"));
+                                rs.getString("ville"), rs.getString("adresse"));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -103,7 +103,7 @@ public class TerrainDaoImpl implements TerrainDao {
                 cl = new Terrain
                         (rs.getInt("id"),
                                 rs.getDouble("latitude"), rs.getDouble("longitude"), rs.getString("region"),
-                                rs.getString("ville"));
+                                rs.getString("ville") , rs.getString("adresse"));
             }
         } catch (SQLException e) {
             e.printStackTrace();

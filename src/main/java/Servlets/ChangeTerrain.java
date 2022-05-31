@@ -38,7 +38,7 @@ public class ChangeTerrain extends HttpServlet {
 //        String ville = request.getParameter("ville");
 //        String region = request.getParameter("region");
 
-        Terrain terrain = new Terrain(latitude,longitude,region,ville);
+        Terrain terrain = new Terrain(latitude,longitude,region,ville, addresse);
 
         TerrainDao terrainDao = new TerrainDaoImpl();
         terrainDao.addTerrain(terrain);

@@ -15,8 +15,19 @@ form.addEventListener("submit", async function (event) {
     for (var pair of formData.entries()) {
         console.log(pair[0] + ': ' + pair[1]);
     }
-    await fetch('../add-listing-traitement',{
-        method:"POST",
-        body: formData
-    });
+    // async method call
+    postData('add-listing-traitement', formData)
+        .then(data => {
+            console.log(data); // JSON data parsed by `data.json()` call
+        });
 });
+
+// Example POST method implementation:
+async function postData(url = '', data = {}) {
+    // Default options are marked with *
+    const response = await fetch(url,{
+        method:"POST",
+        body: data,
+    });
+    return response.text();
+}

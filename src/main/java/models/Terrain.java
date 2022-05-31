@@ -6,24 +6,27 @@ public class Terrain {
     private double longitude;
     private String region;
     private String ville;
+    private String adresse;
 
     public Terrain() {
     }
 
-    public Terrain(int id, double latitude, double longitude, String region, String ville) {
+    public Terrain(int id, double latitude, double longitude, String region, String ville, String adresse) {
         this.id = id;
         this.latitude = latitude;
         this.longitude = longitude;
         this.region = region;
         this.ville = ville;
+        this.adresse = adresse;
     }
-    public Terrain(double latitude, double longitude, String region, String ville) {
+    public Terrain(double latitude, double longitude, String region, String ville , String adresse) {
         this.latitude = latitude;
         this.longitude = longitude;
         this.region = region;
         this.ville = ville;
-    }
+        this.adresse = adresse;
 
+    }
     public int getId() {
         return id;
     }

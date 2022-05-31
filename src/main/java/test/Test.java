@@ -15,7 +15,9 @@ public class Test {
     public static void main(String args[])
     {
         AnnonceDao adi = new AnnonceDaoImp();
-        System.out.println(adi.addAnnonce(new Annonce(1,new Client(6380),"location",9368239)));
+        System.out.println("here u go : " + System.getProperty("user.dir"));
+//        C:\Users\DELL\Desktop\Etudes Supérieures\Master\.S2\J2EE\Projet S2\src\main\webapp\images
+//        System.out.println(adi.addAnnonce(new Annonce(1,new Client(6380),"location",9368239)));
 
     }
 }
