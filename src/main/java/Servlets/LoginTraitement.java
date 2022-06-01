@@ -6,6 +6,7 @@ import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 import models.Client;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -22,11 +23,13 @@ public class LoginTraitement extends HttpServlet {
         String pwd = request.getParameter("password");
         RequestDispatcher view ;
         ClientDao cdi = new ClientDaoImpl();
-        Client currentUser = cdi.getClient(email,pwd);
-        if (!Objects.isNull(currentUser)) {
+        Client currentUser = cdi.getClient(email);
+        System.out.println(email);
+        System.out.println(currentUser);
+        System.out.println(pwd);
+
+        if (BCrypt.checkpw(pwd, currentUser.getPassword())) {
             HttpSession session = request.getSession();
-            //Cookie ckie = new Cookie("projets2cookie" , email);
-            //response.addCookie(ckie);
             session.setAttribute("email",email);
             session.setAttribute("currentUser", currentUser);
             view = request.getRequestDispatcher("add-listing.jsp");

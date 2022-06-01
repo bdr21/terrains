@@ -203,10 +203,10 @@
           <form method="GET" action="AnnonceFilter" class="search_form">
             <div class="atbd_seach_fields_wrapper">
               <div class="single_search_field search_query">
-                <input class="form-control search_fields" type="text" placeholder="chercher par titre?" name="title">
+                <input class="form-control search_fields" type="text" placeholder="chercher par titre?" name="title" required>
               </div>
               <div class="single_search_field search_category">
-                <select class="search_fields" id="at_biz_dir-category" name="region">
+                <select class="search_fields" id="at_biz_dir-category" name="region" required>
                   <option value="Rabat">Rabat, Salé, Kénitra</option>
                   <option value="Casablanca">Casablanca, Settat</option>
                   <option value="Fès">Fès, Meknès</option>
@@ -222,7 +222,7 @@
                 </select>
               </div>
               <div class="single_search_field search_query">
-                <input class="form-control search_fields" type="number" placeholder="votre budget" name="price">
+                <input class="form-control search_fields" type="number" placeholder="votre budget" name="price" required>
 
               </div>
               <div class="atbd_submit_btn">

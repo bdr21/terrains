@@ -28,13 +28,18 @@ public class AnnonceListFilter extends HttpServlet {
         AnnonceDaoImp dao = new AnnonceDaoImp();
         list = dao.getAnnoncesRestrict( (page - 1) * recordsPerPage,
                 recordsPerPage, Integer.parseInt(request.getParameter("price")), request.getParameter("title"),request.getParameter("region"));
-        System.out.println(list);
+        System.out.println(list.size());
         int noOfRecords = dao.getNoOfRecords();
         int noOfPages = (int)Math.ceil(noOfRecords * 1.0
                 / recordsPerPage);
         request.setAttribute("annonceList", list);
         request.setAttribute("noOfPages", noOfPages);
         request.setAttribute("currentPage", page);
+
+        request.setAttribute("price", request.getParameter("price"));
+        request.setAttribute("title", request.getParameter("title"));
+        request.setAttribute("region", request.getParameter("region"));
+
         System.out.println(list);
         RequestDispatcher view
                 = request.getRequestDispatcher("display_List_Annonce3.jsp");

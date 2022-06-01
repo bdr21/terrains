@@ -52,6 +52,8 @@ public class ClientDaoImpl implements ClientDao {
         return false;
     }
 
+
+
     @Override
     public boolean updateClient(Client c) {
         Connection cnx=Connect.getConnection();
@@ -77,6 +79,26 @@ public class ClientDaoImpl implements ClientDao {
         try {
             Statement newST = cnx.createStatement();
             ResultSet rs = newST.executeQuery("Select * from Clients where id =" + idc);
+            while (rs.next()) {
+                cl = new Client
+                        (rs.getInt("id"),
+                                rs.getString("nom"), rs.getString("prenom"), rs.getString("adresse"),
+                                rs.getString("email"), rs.getString("password"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return cl;
+    }
+
+    @Override
+    public Client getClient(String email) {
+        Connection cnx=Connect.getConnection();
+        Client cl = null;
+        try {
+            PreparedStatement newST = cnx.prepareStatement("Select * from Clients where email = ?");
+            newST.setString(1,email);
+            ResultSet rs = newST.executeQuery();
             while (rs.next()) {
                 cl = new Client
                         (rs.getInt("id"),
