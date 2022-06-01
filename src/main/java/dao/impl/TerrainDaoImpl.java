@@ -82,7 +82,7 @@ public class TerrainDaoImpl implements TerrainDao {
                 cl = new Terrain
                         (rs.getInt("id"),
                                 rs.getDouble("latitude"), rs.getDouble("longitude"), rs.getString("region"),
-                                rs.getString("ville"), rs.getString("adresse"));
+                                rs.getString("ville"), rs.getString("ville")+","+rs.getString("region"));
             }
         } catch (SQLException e) {
             e.printStackTrace();
