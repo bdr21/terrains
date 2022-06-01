@@ -27,6 +27,15 @@ public class Terrain {
         this.adresse = adresse;
 
     }
+
+    public String getAdresse() {
+        return adresse;
+    }
+
+    public void setAdresse(String adresse) {
+        this.adresse = adresse;
+    }
+
     public int getId() {
         return id;
     }
