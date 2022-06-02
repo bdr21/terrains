@@ -350,6 +350,35 @@ public class AnnonceDaoImp implements AnnonceDao {
         }
         return lc;
     }
+    public List<Annonce> getAnnoncesRestrictPerson(int offset, int noOfRecords,int id) {
+        Connection cnx= Connect.getConnection();
+        List<Annonce> lc = new ArrayList<Annonce>();
+        Annonce cl = null;
+        ClientDao cdi = new ClientDaoImpl();
+        TerrainDao tdi = new TerrainDaoImpl();
+        try {
+            Statement newST = cnx.createStatement();
+            ResultSet rs = newST.executeQuery("select * from annonce where id="+id+"limit " + offset + "," +noOfRecords);
+            while (rs.next()) {
+                cl = new Annonce(rs.getInt("id"), cdi.getClient(rs.getInt("id_annonceur")) ,
+                        rs.getString("title") , rs.getString("description"), rs.getString("tags"),
+                        rs.getString("video_url"), rs.getString("thumbnail") , rs.getString("gallerie"),
+                        rs.getInt("price"), rs.getTimestamp("dateDePub"),
+                        rs.getString("telephone_number"), rs.getString("email"),
+                        rs.getString("twitter"), rs.getString("facebook"), rs.getString("instagram"),
+                        tdi.getTerrain(rs.getInt("id_terrain")));
+                lc.add(cl);
+            }
+            rs.close();
+
+            rs = newST.executeQuery("SELECT FOUND_ROWS()");
+            if (rs.next())
+                this.noOfRecords = rs.getInt(1);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return lc;
+    }
     public int getNoOfRecords() { return noOfRecords; }
 
 }

@@ -59,10 +59,11 @@ public class ClientDaoImpl implements ClientDao {
         Connection cnx=Connect.getConnection();
         try {
             PreparedStatement newPST =
-                    cnx.prepareStatement("update clients set nom=? , prenom=? where id=?");
+                    cnx.prepareStatement("update clients set nom=? , prenom=? where id=? or email=?");
             newPST.setString(1, c.getNom());
             newPST.setString(2, c.getPrenom());
             newPST.setInt(3, c.getId());
+            newPST.setString(4, c.getEmail());
             int success = newPST.executeUpdate();
             if (success == 1) return true;
             if (success == 0) return false;

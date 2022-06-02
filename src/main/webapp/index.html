@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+         let xmlhttp = new XMLHttpRequest();
+         let donnees = {};
+         donnees['nom']= "safiri";
+         donnees['prenom']= "fouad";
+         let donneesJson = JSON.stringify(donnees);
+         xmlhttp.onreadystatechange=function(){
+           if (this.readyState==4){
+            console.log(this);
+
+}
+}
+
+xmlhttp.open("POST", "http://localhost:8080/terrains_war_exploded/exemplePost",true);
+         xmlhttp.setRequestHeader('Content-type', 'application/json');
+         xmlhttp.send(donneesJson);
+    </script>  
+</body>
+</html>
