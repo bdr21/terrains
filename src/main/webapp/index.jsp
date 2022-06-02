@@ -203,7 +203,7 @@
           <form method="GET" action="AnnonceFilter" class="search_form">
             <div class="atbd_seach_fields_wrapper">
               <div class="single_search_field search_query">
-                <input class="form-control search_fields" type="text" placeholder="chercher par titre?" name="title" required>
+                <input value="" class="form-control search_fields" type="text" placeholder="chercher par titre?" name="title" >
               </div>
               <div class="single_search_field search_category">
                 <select class="search_fields" id="at_biz_dir-category" name="region" required>
@@ -219,10 +219,11 @@
                   <option value="Guelmim">Guelmim, Oued Noun</option>
                   <option value="Laâyoune">Laâyoune, Sakia El Hamra</option>
                   <option value="Dakhla">Dakhla, Oued Ed Dahab</option>
+                  <option value="" selected="selected">Tout le Maroc</option>
                 </select>
               </div>
               <div class="single_search_field search_query">
-                <input class="form-control search_fields" type="number" placeholder="votre budget" name="price" required>
+                <input value="8000000" class="form-control search_fields" type="number" placeholder="votre budget" name="price">
 
               </div>
               <div class="atbd_submit_btn">

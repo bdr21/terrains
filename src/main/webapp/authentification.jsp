@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: fouad
@@ -29,6 +30,12 @@
       <input type="password" placeholder="Mot de passe" name="password" required />
       <input type="text" placeholder="Adresse" name="adresse" required />
       <button>S'inscrire</button>
+      <c:if test="${inscrit=='true'}">
+        <c:out value="Vous êtes bien inscrit"></c:out>
+      </c:if>
+      <c:if test="${inscrit=='false'}">
+        <c:out value="Vous n'êtes pas bien inscrit ! email déjà utilisé"></c:out>
+      </c:if>
     </form>
   </div>
   <div class="form-container sign-in-container">
@@ -38,6 +45,13 @@
       <input type="password" placeholder="Mot de passe" name="password" />
       <a href="#" class="forgot-password">Mot de passe oublié ?</a>
       <button>Se connecter</button>
+      <c:if test="${connecte=='false'}">
+        <c:out value="Vous n'êtes pas bien connecté ! Vérifier les données saisies"></c:out>
+      </c:if>
+      <c:if test="${inscrit=='false'}">
+        <c:out value="Vous n'êtes pas bien inscrit"></c:out>
+        <c:remove var="inscrit"/>
+      </c:if>
     </form>
   </div>
   <div class="overlay-container">
@@ -46,10 +60,11 @@
         <h1>Content de vous revoir !</h1>
         <p>Pour rester en contact avec nous, veuillez vous connecter avec vos informations personnelles</p>
         <button class="ghost" id="signIn">Se connecter</button>
+
       </div>
       <div class="overlay-panel overlay-right">
         <h1>Salut, cher dev !</h1>
-        <p>Entrez vos données personnelles et commencez votre voyage avec nous</p>
+        <p>Entrez vos données personnelles et commencez votre expérience avec nous</p>
         <button class="ghost" id="signUp">S'inscrire</button>
       </div>
     </div>

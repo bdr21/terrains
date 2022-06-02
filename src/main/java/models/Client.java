@@ -12,6 +12,8 @@ public class Client implements Serializable {
     private String password;
     private String adresse;
 
+    private float  rating;
+
     public Client(int id) {
         this.id = id;
     }
@@ -67,5 +69,13 @@ public class Client implements Serializable {
                 ", password='" + password + '\'' +
                 ", adresse='" + adresse + '\'' +
                 '}';
+    }
+
+    public float getRating() {
+        return rating;
+    }
+
+    public void setRating(float rating) {
+        this.rating = rating;
     }
 }

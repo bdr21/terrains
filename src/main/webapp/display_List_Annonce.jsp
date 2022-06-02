@@ -20,7 +20,7 @@
         <th>type</th>
     </tr>
 
-    <c:forEach var="annonce" items="${annonceList}">
+    <c:forEach var="annonce" items="${annonceListPerson}">
         <tr>
             <td>${annonce.id}</td>
             <td>${annonce.possesseur}</td>

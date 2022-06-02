@@ -8,20 +8,19 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import models.Client;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.stream.Collectors;
 
-@WebServlet(name = "my-profile", value = "/exemplePost")
-public class ExemplePost extends HttpServlet {
+@WebServlet(name = "signout", value = "/signout")
+public class SignOut extends HttpServlet {
 
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.getSession().invalidate();
+        response.sendRedirect("index.jsp");
 
+    }
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        String requestData = request.getReader().lines().collect(Collectors.joining());
-        Gson gson = new Gson(); // Or use new GsonBuilder().create();
-        Client target2 = gson.fromJson(requestData, Client.class);
-        System.out.println(requestData);
-        System.out.println(target2);
+
     }
-    }
+}

@@ -15,7 +15,7 @@ import models.Client;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "my-profile", value = "/myProfile")
+@WebServlet("/myprofile")
 public class MyProfile extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         int page = 1;
@@ -28,12 +28,15 @@ public class MyProfile extends HttpServlet {
         AnnonceDaoImp dao = new AnnonceDaoImp();
         list = dao.getAnnoncesRestrictPerson( (page - 1) * recordsPerPage,
                 recordsPerPage, c.getId());
-        System.out.println(list.size());
+        System.out.println("size" + list.size());
+        System.out.println("page : " + page);
+
         int noOfRecords = dao.getNoOfRecords();
         int noOfPages = (int)Math.ceil(noOfRecords * 1.0
                 / recordsPerPage);
-
-        request.setAttribute("annonceList", list);
+        System.out.println("nb page : " + noOfPages);
+        System.out.println("nb record : " + noOfRecords);
+        request.setAttribute("annonceListPerson", list);
         request.setAttribute("noOfPages", noOfPages);
         request.setAttribute("currentPage", page);
         System.out.println(list);

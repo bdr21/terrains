@@ -329,7 +329,7 @@ public class AnnonceDaoImp implements AnnonceDao {
         TerrainDao tdi = new TerrainDaoImpl();
         try {
             Statement newST = cnx.createStatement();
-            ResultSet rs = newST.executeQuery("select * from annonce inner join terrains on annonce.id_terrain = terrains.id  where price<"+price+" AND title LIKE '%"+title+"%' AND  region LIKE '%"+region+"%'limit " + offset + "," +noOfRecords);
+            ResultSet rs = newST.executeQuery("select SQL_CALC_FOUND_ROWS * from annonce inner join terrains on annonce.id_terrain = terrains.id  where price<"+price+" AND title LIKE '%"+title+"%' AND  region LIKE '%"+region+"%'limit " + offset + "," +noOfRecords);
             while (rs.next()) {
                 cl = new Annonce(rs.getInt("id"), cdi.getClient(rs.getInt("id_annonceur")) ,
                         rs.getString("title") , rs.getString("description"), rs.getString("tags"),
@@ -358,7 +358,7 @@ public class AnnonceDaoImp implements AnnonceDao {
         TerrainDao tdi = new TerrainDaoImpl();
         try {
             Statement newST = cnx.createStatement();
-            ResultSet rs = newST.executeQuery("select * from annonce where id="+id+"limit " + offset + "," +noOfRecords);
+            ResultSet rs = newST.executeQuery("select SQL_CALC_FOUND_ROWS * from annonce where id_annonceur="+id+" limit " + offset + "," + noOfRecords);
             while (rs.next()) {
                 cl = new Annonce(rs.getInt("id"), cdi.getClient(rs.getInt("id_annonceur")) ,
                         rs.getString("title") , rs.getString("description"), rs.getString("tags"),
