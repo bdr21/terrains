@@ -13,6 +13,17 @@ public class Message {
     public Message() {
     }
 
+    @Override
+    public String toString() {
+        return "Message{" +
+                "sender=" + sender +
+                ", receiver=" + receiver +
+                ", createdAt=" + createdAt +
+                ", text='" + text + '\'' +
+                ", id_annonce=" + id_annonce +
+                '}';
+    }
+
     public Message(Client sender, Client receiver, Timestamp createdAt, String text, int id_annonce) {
         this.sender = sender;
         this.receiver = receiver;
