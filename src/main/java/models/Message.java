@@ -1,18 +1,27 @@
 package models;
 
+import java.sql.Timestamp;
 import java.util.Date;
 
 public class Message {
     private Client sender;
     private Client receiver;
-    private Date createdAt;
+    private Timestamp createdAt;
     private String text;
     private int id_annonce;
 
     public Message() {
     }
 
-    public Message(Client sender, Client receiver, Date createdAt, String text, int id_annonce) {
+    public Message(Client sender, Client receiver, Timestamp createdAt, String text, int id_annonce) {
+        this.sender = sender;
+        this.receiver = receiver;
+        this.createdAt = createdAt;
+        this.text = text;
+        this.id_annonce = id_annonce;
+    }
+
+    public Message(Client sender, Client receiver, String text, int id_annonce) {
         this.sender = sender;
         this.receiver = receiver;
         this.createdAt = createdAt;
@@ -36,11 +45,11 @@ public class Message {
         this.receiver = receiver;
     }
 
-    public Date getCreatedAt() {
+    public Timestamp getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(Date createdAt) {
+    public void setCreatedAt(Timestamp createdAt) {
         this.createdAt = createdAt;
     }
 

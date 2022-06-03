@@ -45,7 +45,7 @@
         maxZoom: 20
     }).addTo(mymap);
     var iconeClient = L.icon({
-        iconUrl: "ressources/drapeau.png",
+        iconUrl: "ressources/location.png",
         iconSize: [50, 50],
         iconAnchor: [25, 50],                //icone pour le client
         popupAnchor: [0, -50]
