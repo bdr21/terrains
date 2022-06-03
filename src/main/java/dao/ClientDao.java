@@ -10,6 +10,7 @@ public interface ClientDao {
     boolean deleteClient(int idc);
     boolean deleteClients(String ids);
     Client getClient(int idc);
+    Client getClient(String email);
     Client getClient(String email , String password);
     List<Client> getClients();
 }

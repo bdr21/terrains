@@ -52,15 +52,18 @@ public class ClientDaoImpl implements ClientDao {
         return false;
     }
 
+
+
     @Override
     public boolean updateClient(Client c) {
         Connection cnx=Connect.getConnection();
         try {
             PreparedStatement newPST =
-                    cnx.prepareStatement("update clients set nom=? , prenom=? where id=?");
+                    cnx.prepareStatement("update clients set nom=? , prenom=? where id=? or email=?");
             newPST.setString(1, c.getNom());
             newPST.setString(2, c.getPrenom());
             newPST.setInt(3, c.getId());
+            newPST.setString(4, c.getEmail());
             int success = newPST.executeUpdate();
             if (success == 1) return true;
             if (success == 0) return false;
@@ -77,6 +80,26 @@ public class ClientDaoImpl implements ClientDao {
         try {
             Statement newST = cnx.createStatement();
             ResultSet rs = newST.executeQuery("Select * from Clients where id =" + idc);
+            while (rs.next()) {
+                cl = new Client
+                        (rs.getInt("id"),
+                                rs.getString("nom"), rs.getString("prenom"), rs.getString("adresse"),
+                                rs.getString("email"), rs.getString("password"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return cl;
+    }
+
+    @Override
+    public Client getClient(String email) {
+        Connection cnx=Connect.getConnection();
+        Client cl = null;
+        try {
+            PreparedStatement newST = cnx.prepareStatement("Select * from Clients where email = ?");
+            newST.setString(1,email);
+            ResultSet rs = newST.executeQuery();
             while (rs.next()) {
                 cl = new Client
                         (rs.getInt("id"),
