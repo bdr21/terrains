@@ -70,8 +70,8 @@ public class AddListingTraitement extends HttpServlet {
             if (part.getName().equals("preview_img")) { pathToImages+= "annonces_thumbnails\\" ;}
             if (part.getName().equals("gallery_imgs")) { pathToImages+= "annonces_galleries\\" ;}
             String pathWithFileName = pathToImages + fileName;
-            if (part.getName().equals("preview_img")) { thumbnail = pathWithFileName ;}
-            if (part.getName().equals("gallery_imgs")) { gallerie += pathWithFileName + "," ;}
+            if (part.getName().equals("preview_img")) { thumbnail = fileName ;}
+            if (part.getName().equals("gallery_imgs")) { gallerie += fileName + "," ;}
             if (pathWithFileName != null) part.write(pathWithFileName);
         }
 

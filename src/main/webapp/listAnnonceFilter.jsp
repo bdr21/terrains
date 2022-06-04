@@ -5,89 +5,166 @@
   Time: 17:09
   To change this template use File | Settings | File Templates.
 --%>
-<div class="col-lg-12 listing-items">
-  <div class="row">
-    <div class="col-lg-8 order-0 order-lg-1">
-      <div class="row">
-        <c:forEach var="annonce" items="${annonceList}">
-          <div class="col-lg-12">
-            <div class="atbd_single_listing atbd_listing_list">
-              <article class="atbd_single_listing_wrapper">
-                <figure class="atbd_listing_thumbnail_area">
-                  <div class="atbd_listing_image">
-                    <a href="">
-                      <img src="${annonce.thumbnail}" alt="listing image">
-                    </a>
-                  </div><!-- ends: .atbd_listing_image -->
-                  <div class="atbd_thumbnail_overlay_content">
-                    <ul class="atbd_upper_badge">
-                      <li><span class="atbd_badge atbd_badge_featured">Featured</span></li>
-                    </ul><!-- ends .atbd_upper_badge -->
-                  </div><!-- ends: .atbd_thumbnail_overlay_content -->
-                </figure><!-- ends: .atbd_listing_thumbnail_area -->
-                <div class="atbd_listing_info">
-                  <div class="atbd_content_upper">
-                    <h4 class="atbd_listing_title">
-                      <a href="">${annonce.title}</a>
-                    </h4>
-                    <div class="atbd_listing_meta">
-                      <span class="atbd_meta atbd_listing_rating">4.5<i class="la la-star"></i></span>
-                      <span class="atbd_meta atbd_listing_price">${annonce.price}dhs</span>
-                      <span class="atbd_meta atbd_badge_open"></span>
-                    </div><!-- End atbd listing meta -->
-                    <div class="atbd_listing_data_list">
-                      <ul>
-                        <li>
-                          <p><span class="la la-map-marker"></span>${annonce.terrain.adresse}</p>
-                        </li>
-                        <li>
-                          <p><span class="la la-phone"></span>${annonce.telephone_number}</p>
-                        </li>
-                        <li>
-                          <p><span class="la la-calendar-check-o"></span>${annonce.dateDePub}</p>
-                        </li>
-                      </ul>
-                    </div><!-- End atbd listing meta -->
-                  </div><!-- end .atbd_content_upper -->
-                </div><!-- ends: .atbd_listing_info -->
-              </article><!-- atbd_single_listing_wrapper -->
+<section class="all-listing-wrapper section-bg" id="listeAnnFilterSection">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="atbd_generic_header">
+          <div class="atbd_generic_header_title">
+            <h4>All Items</h4>
+            <p>Total Listing Found: ${noOfRecords}</p>
+          </div><!-- ends: .atbd_generic_header_title -->
+          <div class="atbd_listing_action_btn btn-toolbar" role="toolbar">
+            <!-- Views dropdown -->
+            <div class="view-mode">
+              <a class="action-btn active" href="brouillon/all-listings-grid.html"><span class="la la-th-large"></span></a><a class="action-btn" href="../../../../direohtml/src/all-listings-list.html"><span class="la la-list"></span></a>
             </div>
-          </div><!-- ends: .col-lg-12 -->
-        </c:forEach>
-      </div><!-- end .atbd_content_upper -->
-      </article><!-- atbd_single_listing_wrapper -->
+            <!-- Orderby dropdown -->
+            <div class="dropdown">
+              <a class="action-btn dropdown-toggle" href="" role="button" id="dropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sort by <span class="caret"></span></a>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink2">
+                <a class="dropdown-item" href="">A to Z ( title )</a>
+                <a class="dropdown-item" href="">Z to A ( title )</a>
+                <a class="dropdown-item active" href="">Latest listings</a>
+                <a class="dropdown-item" href="">Oldest listings</a>
+                <a class="dropdown-item" href="">Popular listings</a>
+                <a class="dropdown-item" href="">Price ( low to high )</a>
+                <a class="dropdown-item" href="">Price ( high to low )</a>
+                <a class="dropdown-item" href="">Random listings</a>
+              </div>
+            </div>
+          </div><!-- ends: .atbd_listing_action_btn -->
+        </div><!-- ends: .atbd_generic_header -->
+      </div><!-- ends: .col-lg-12 -->
+      <div class="col-lg-12 listing-items">
+        <div class="row">
+          <div class="col-lg-12 order-lg-1 order-0">
+            <div class="row">
+              <c:forEach var="annonce" items="${annonceList}">
+                <div class="col-sm-4">
+                  <div class="atbd_single_listing">
+                    <article class="atbd_single_listing_wrapper">
+                      <figure class="atbd_listing_thumbnail_area">
+                        <div class="atbd_listing_image">
+                          <a href="">
+                            <img src="images/annonces_thumbnails/${annonce.thumbnail}" alt="listing image">
+                          </a>
+                        </div><!-- ends: .atbd_listing_image -->
+                        <div class="atbd_thumbnail_overlay_content">
+                          <ul class="atbd_upper_badge">
+                            <li><span class="atbd_badge atbd_badge_featured">Featured</span></li>
+                          </ul><!-- ends .atbd_upper_badge -->
+                        </div><!-- ends: .atbd_thumbnail_overlay_content -->
+                      </figure><!-- ends: .atbd_listing_thumbnail_area -->
+                      <div class="atbd_listing_info">
+                        <div class="atbd_content_upper">
+                          <h4 class="atbd_listing_title">
+                            <a href="">${annonce.title}</a>
+                          </h4>
+                          <div class="atbd_listing_meta">
+                            <span class="atbd_meta atbd_listing_rating">4.5<i class="la la-star"></i></span>
+                            <span class="atbd_meta atbd_listing_price">${annonce.price}dhs</span>
+                            <span class="atbd_meta atbd_badge_open"></span>
+                          </div><!-- End atbd listing meta -->
+                          <div class="atbd_listing_data_list">
+                            <ul>
+                              <li>
+                                <p><span class="la la-map-marker"></span>${annonce.terrain.adresse}</p>
+                              </li>
+                              <li>
+                                <p><span class="la la-phone"></span>${annonce.telephone_number}</p>
+                              </li>
+                              <li>
+                                <p><span class="la la-calendar-check-o"></span>${annonce.dateDePub}</p>
+                              </li>
+                            </ul>
+                          </div><!-- End atbd listing meta -->
+                        </div><!-- end .atbd_content_upper -->
+                      </div><!-- ends: .atbd_listing_info -->
+                    </article><!-- atbd_single_listing_wrapper -->
+                  </div>
+                </div>
+              </c:forEach>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  </div><!-- ends: .col-lg-12 -->
-</div>
-</div><!-- ends: .col-lg-8 -->
-</div>
-</div><!-- ends: .listing-items -->
-<table border="1" cellpadding="5" cellspacing="5">
-  <%--For displaying Previous link except for the 1st page --%>
-  <c:if test="${currentPage != 1}">
-  <td><a href="AnnonceFilter?page=${currentPage - 1}&title=${titre}&price=${price}&region=${region}">Previous</a></td>
-</c:if>
-<%--For displaying Page numbers. The when condition does not display
-            a link for the current page--%>
+    <div class="row">
+      <div class="col-lg-12">
+
+        <nav class="navigation pagination d-flex justify-content-end" role="navigation">
+          <div class="nav-links">
+            <c:if test="${currentPage != 1}">
+              <a class="prev page-numbers" href="AnnonceFilter?page=${currentPage - 1}&title=${titre}&price=${price}&region=${region}#listeAnnFilterSection">
+                <span class="la la-long-arrow-left"></span>
+              </a>
+            </c:if>
+            <c:forEach begin="1" end="${noOfPages}" var="i">
+              <c:choose>
+                <c:when test="${currentPage eq i}">
+                  <span aria-current="page" class="page-numbers current">${i}</span>
+                </c:when>
+                <c:otherwise>
+                  <a class="page-numbers" href="AnnonceFilter?page=${i}&title=${titre}&price=${price}&region=${region}#listeAnnFilterSection">${i}</a>
+                </c:otherwise>
+              </c:choose>
+            </c:forEach>
+            <c:if test="${currentPage lt noOfPages}">
+              <a class="next page-numbers" href="AnnonceFilter?page=${currentPage + 1}&title=${titre}&price=${price}&region=${region}#listeAnnFilterSection">
+                <span class="la la-long-arrow-right"></span>
+              </a>
+            </c:if>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </div>
+</section>
 
 
-    <tr>
-        <c:forEach begin="1" end="${noOfPages}" var="i">
-                    <c:choose>
-                        <c:when test="${currentPage eq i}">
-                            <td>${i}</td>
-                        </c:when>
-                        <c:otherwise>
-                            <td><a href="AnnonceFilter?page=${i}&title=${titre}&price=${price}&region=${region}">${i}</a></td>
-  </c:otherwise>
-  </c:choose>
-  </c:forEach>
-  </tr>
 
 
-  <%--For displaying Next link --%>
 
-  <c:if test="${currentPage lt noOfPages}">
-    <td><a href="AnnonceFilter?page=${currentPage + 1}&title=${titre}&price=${price}&region=${region}">Next</a></td>
-  </c:if>
-</table>
+
+
+
+
+
+
+
+
+
+
+
+
+<%--<table border="1" cellpadding="5" cellspacing="5">--%>
+<%--  &lt;%&ndash;For displaying Previous link except for the 1st page &ndash;%&gt;--%>
+<%--  <c:if test="${currentPage != 1}">--%>
+<%--    <td>--%>
+<%--      <a href="AnnonceFilter?page=${currentPage - 1}&title=${titre}&price=${price}&region=${region}">Previous</a>--%>
+<%--    </td>--%>
+<%--  </c:if>--%>
+
+<%--  <tr>--%>
+<%--    <c:forEach begin="1" end="${noOfPages}" var="i">--%>
+<%--      <c:choose>--%>
+<%--        <c:when test="${currentPage eq i}">--%>
+<%--          <td>${i}</td>--%>
+<%--        </c:when>--%>
+<%--        <c:otherwise>--%>
+<%--          <td>--%>
+<%--            <a href="AnnonceFilter?page=${i}&title=${titre}&price=${price}&region=${region}">${i}</a>--%>
+<%--          </td>--%>
+<%--        </c:otherwise>--%>
+<%--      </c:choose>--%>
+<%--    </c:forEach>--%>
+<%--  </tr>--%>
+
+
+<%--  &lt;%&ndash;For displaying Next link &ndash;%&gt;--%>
+
+<%--  <c:if test="${currentPage lt noOfPages}">--%>
+<%--    <td><a href="AnnonceFilter?page=${currentPage + 1}&title=${titre}&price=${price}&region=${region}">Next</a></td>--%>
+<%--  </c:if>--%>
+<%--</table>--%>

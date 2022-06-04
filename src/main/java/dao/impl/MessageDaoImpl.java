@@ -34,6 +34,27 @@ public class MessageDaoImpl implements MessageDao {
         return lc;
     }
 
+    public List<Message> getMessagesRestrictClient(int id_client) {
+        Connection cnx= Connect.getConnection();
+        ClientDaoImpl cdi = new ClientDaoImpl();
+        List<Message> lc = new ArrayList<Message>();
+        try {
+            Statement newST = cnx.createStatement();
+            ResultSet rs = newST.executeQuery("Select * from Messages where id_sender = " + id_client +
+                    " or id_receiver = "+ id_client);
+            while (rs.next()) {
+                Message cl = new Message
+                        (cdi.getClient(rs.getInt("id_sender")), cdi.getClient(rs.getInt("id_receiver")),
+                                rs.getTimestamp("createdAt"), rs.getString("text"),
+                                rs.getInt("id_annonce"));
+                lc.add(cl);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return lc;
+    }
+
     @Override
     public boolean addMessage(Message c) {
         Message mes = c;

@@ -20,7 +20,7 @@ public class AnnonceListFilter extends HttpServlet {
             throws ServletException, IOException
     {
         int page = 1;
-        int recordsPerPage = 5;
+        int recordsPerPage = 9;
         List<Annonce> list = null;
         if (request.getParameter("page") != null)
             page = Integer.parseInt(
@@ -32,6 +32,7 @@ public class AnnonceListFilter extends HttpServlet {
         int noOfRecords = dao.getNoOfRecords();
         int noOfPages = (int)Math.ceil(noOfRecords * 1.0
                 / recordsPerPage);
+        request.setAttribute("noOfRecords", noOfRecords);
         request.setAttribute("annonceList", list);
         request.setAttribute("noOfPages", noOfPages);
         request.setAttribute("currentPage", page);

@@ -28,6 +28,7 @@ public class NewMessageTraitement extends HttpServlet {
         int annonceId = Integer.parseInt(request.getParameter("annonceId"));
         int receiverId = Integer.parseInt(request.getParameter("receiverId"));
 
+        // (Client)request.getSession().getAttribute("currentUser");
         Client sender = new Client(12345,"bdr@s.co","123456");
         Client receiver = new Client(receiverId,null,null);
 
