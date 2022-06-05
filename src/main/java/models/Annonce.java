@@ -4,6 +4,7 @@ import java.sql.Date;
 import java.sql.Time;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
+import java.util.Comparator;
 
 public class Annonce {
     private int id;
@@ -17,6 +18,33 @@ public class Annonce {
     // contact info
     private String telephone_number, email, twitter, facebook, instagram;
     private String type;
+
+    /*Comparator for sorting the list by Annonce Price*/
+    public static Comparator<Annonce> annoncePriceComparatorAsc = new Comparator<Annonce>() {
+
+        public int compare(Annonce s1, Annonce s2) {
+            int priceAnnonce1 = s1.getPrice();
+            int priceAnnonce2 = s2.getPrice();
+
+            //ascending order
+            return priceAnnonce1-priceAnnonce2;
+
+            //descending order
+            //return priceAnnonce2-priceAnnonce1;
+        }};
+    /*Comparator for sorting the list by Annonce Price*/
+    public static Comparator<Annonce> annoncePriceComparatorDesc = new Comparator<Annonce>() {
+
+        public int compare(Annonce s1, Annonce s2) {
+            int priceAnnonce1 = s1.getPrice();
+            int priceAnnonce2 = s2.getPrice();
+
+
+            //descending order
+            return priceAnnonce2-priceAnnonce1;
+        }};
+
+
     public Annonce(int id, Client possesseur, String type, Timestamp dateDePub) {
         this.id = id;
         this.possesseur = possesseur;

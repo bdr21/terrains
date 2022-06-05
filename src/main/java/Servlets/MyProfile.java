@@ -26,7 +26,7 @@ public class MyProfile extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         HttpSession session = request.getSession();
         int page = 1;
-        int recordsPerPage = 5;
+        int recordsPerPage = 9;
         List<Annonce> list = null;
         List<Message> msgs = null;
         List<Favori> favoris = null;
@@ -55,6 +55,7 @@ public class MyProfile extends HttpServlet {
         System.out.println("les messages : \n" + msgs);
 
         // session
+        request.setAttribute("noOfRecords", noOfRecords);
         request.setAttribute("currentUser",c);
         request.setAttribute("messages",msgs);
         request.setAttribute("favoris",favoris);

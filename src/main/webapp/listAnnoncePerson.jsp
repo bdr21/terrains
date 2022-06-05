@@ -1,4 +1,4 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="j" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: fouad
@@ -6,84 +6,166 @@
   Time: 17:09
   To change this template use File | Settings | File Templates.
 --%>
-<div class="tab-pane fade show active" id="listings" role="tabpanel" aria-labelledby="all-listings">
+<section class="all-listing-wrapper section-bg" id="listeAnnFilterSection">
     <div class="container">
         <div class="row">
-            <c:forEach var="annonce" items="${annonceListPerson}">
-                <div class="col-lg-4 col-sm-6">
-                    <div class="atbd_single_listing atbd_listing_card">
-                        <article class="atbd_single_listing_wrapper ">
-                            <figure class="atbd_listing_thumbnail_area">
-                                <div class="atbd_listing_image">
-                                    <a href="">
-                                        <img src="images/annonces_thumbnails/${annonce.thumbnail}" alt="listing image">
-                                    </a>
-                                </div><!-- ends: .atbd_listing_image -->
-                                <div class="atbd_thumbnail_overlay_content">
-                                    <ul class="atbd_upper_badge">
-                                        <li><span class="atbd_badge atbd_badge_featured">Featured</span></li>
-                                    </ul><!-- ends .atbd_upper_badge -->
-                                </div><!-- ends: .atbd_thumbnail_overlay_content -->
-                            </figure><!-- ends: .atbd_listing_thumbnail_area -->
-                            <div class="atbd_listing_info">
-                                <div class="atbd_content_upper">
-                                    <h4 class="atbd_listing_title">
-                                        <a href="">${annonce.title}</a>
-                                    </h4>
-                                    <div class="atbd_listing_meta">
-                                        <span class="atbd_meta atbd_listing_rating">4.5<i class="la la-star"></i></span>
-                                        <span class="atbd_meta atbd_listing_price">${annonce.price}dhs</span>
-                                        <span class="atbd_meta atbd_badge_open"></span>
-                                    </div><!-- End atbd listing meta -->
-                                    <div class="atbd_listing_data_list">
-                                        <ul>
-                                            <li>
-                                                <p><span class="la la-map-marker"></span>${annonce.terrain.adresse}</p>
-                                            </li>
-                                            <li>
-                                                <p><span class="la la-phone"></span>${annonce.telephone_number}</p>
-                                            </li>
-                                            <li>
-                                                <p><span class="la la-calendar-check-o"></span>${annonce.dateDePub}</p>
-                                            </li>
-                                        </ul>
-                                    </div><!-- End atbd listing meta -->
-                                </div><!-- end .atbd_content_upper -->
-                            </div><!-- ends: .atbd_listing_info -->
-                        </article>
-                    </div><!-- ends: .atbd_single_listing -->
+            <div class="col-lg-12">
+                <div class="atbd_generic_header">
+                    <div class="atbd_generic_header_title">
+                        <h4>All Items</h4>
+                        <p>Total Listing Found: ${noOfRecords}</p>
+                    </div><!-- ends: .atbd_generic_header_title -->
+                    <div class="atbd_listing_action_btn btn-toolbar" role="toolbar">
+                        <!-- Views dropdown -->
+                        <div class="view-mode">
+                            <a class="action-btn active" href="brouillon/all-listings-grid.html"><span class="la la-th-large"></span></a><a class="action-btn" href="../../../../direohtml/src/all-listings-list.html"><span class="la la-list"></span></a>
+                        </div>
+                        <!-- Orderby dropdown -->
+                        <div class="dropdown">
+                            <a class="action-btn dropdown-toggle" href="" role="button" id="dropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sort by <span class="caret"></span></a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink2">
+                                <a class="dropdown-item" href="">A to Z ( title )</a>
+                                <a class="dropdown-item" href="">Z to A ( title )</a>
+                                <a class="dropdown-item active" href="">Latest listings</a>
+                                <a class="dropdown-item" href="">Oldest listings</a>
+                                <a class="dropdown-item" href="">Popular listings</a>
+                                <a class="dropdown-item" href="">Price ( low to high )</a>
+                                <a class="dropdown-item" href="">Price ( high to low )</a>
+                                <a class="dropdown-item" href="">Random listings</a>
+                            </div>
+                        </div>
+                    </div><!-- ends: .atbd_listing_action_btn -->
+                </div><!-- ends: .atbd_generic_header -->
+            </div><!-- ends: .col-lg-12 -->
+            <div class="col-lg-12 listing-items">
+                <div class="row">
+                    <div class="col-lg-12 order-lg-1 order-0">
+                        <div class="row">
+                            <j:forEach var="annonce" items="${annonceListPerson}">
+                                <div class="col-sm-4">
+                                    <div class="atbd_single_listing">
+                                        <article class="atbd_single_listing_wrapper">
+                                            <figure class="atbd_listing_thumbnail_area">
+                                                <div class="atbd_listing_image">
+                                                    <a href="">
+                                                        <img src="images/annonces_thumbnails/${annonce.thumbnail}" alt="listing image">
+                                                    </a>
+                                                </div><!-- ends: .atbd_listing_image -->
+                                                <div class="atbd_thumbnail_overlay_content">
+                                                    <ul class="atbd_upper_badge">
+                                                        <li><span class="atbd_badge atbd_badge_featured">Featured</span></li>
+                                                    </ul><!-- ends .atbd_upper_badge -->
+                                                </div><!-- ends: .atbd_thumbnail_overlay_content -->
+                                            </figure><!-- ends: .atbd_listing_thumbnail_area -->
+                                            <div class="atbd_listing_info">
+                                                <div class="atbd_content_upper">
+                                                    <h4 class="atbd_listing_title">
+                                                        <a href="">${annonce.title}</a>
+                                                    </h4>
+                                                    <div class="atbd_listing_meta">
+                                                        <span class="atbd_meta atbd_listing_rating">4.5<i class="la la-star"></i></span>
+                                                        <span class="atbd_meta atbd_listing_price">${annonce.price}dhs</span>
+                                                        <span class="atbd_meta atbd_badge_open"></span>
+                                                    </div><!-- End atbd listing meta -->
+                                                    <div class="atbd_listing_data_list">
+                                                        <ul>
+                                                            <li>
+                                                                <p><span class="la la-map-marker"></span>${annonce.terrain.adresse}</p>
+                                                            </li>
+                                                            <li>
+                                                                <p><span class="la la-phone"></span>${annonce.telephone_number}</p>
+                                                            </li>
+                                                            <li>
+                                                                <p><span class="la la-calendar-check-o"></span>${annonce.dateDePub}</p>
+                                                            </li>
+                                                        </ul>
+                                                    </div><!-- End atbd listing meta -->
+                                                </div><!-- end .atbd_content_upper -->
+                                            </div><!-- ends: .atbd_listing_info -->
+                                        </article><!-- atbd_single_listing_wrapper -->
+                                    </div>
+                                </div>
+                            </j:forEach>
+                        </div>
+                    </div>
                 </div>
-            </c:forEach>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+
+                <nav class="navigation pagination d-flex justify-content-end" role="navigation">
+                    <div class="nav-links">
+                        <j:if test="${currentPage != 1}">
+                            <a class="prev page-numbers" href="myprofile?page=${currentPage - 1}#listeAnnFilterSection">
+                                <span class="la la-long-arrow-left"></span>
+                            </a>
+                        </j:if>
+                        <j:forEach begin="1" end="${noOfPages}" var="i">
+                            <j:choose>
+                                <j:when test="${currentPage eq i}">
+                                    <span aria-current="page" class="page-numbers current">${i}</span>
+                                </j:when>
+                                <j:otherwise>
+                                    <a class="page-numbers" href="myprofile?page=${i}#listeAnnFilterSection">${i}</a>
+                                </j:otherwise>
+                            </j:choose>
+                        </j:forEach>
+                        <j:if test="${currentPage lt noOfPages}">
+                            <a class="next page-numbers" href="myprofile?page=${currentPage + 1}#listeAnnFilterSection">
+                                <span class="la la-long-arrow-right"></span>
+                            </a>
+                        </j:if>
+                    </div>
+                </nav>
+            </div>
         </div>
     </div>
-</div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <%--<table border="1" cellpadding="5" cellspacing="5">--%>
-<%--    &lt;%&ndash;For displaying Previous link except for the 1st page &ndash;%&gt;--%>
-<%--    <c:if test="${currentPage != 1}">--%>
-<%--    <td><a href="myprofile?page=${currentPage - 1}">Previous</a></td>--%>
-<%--    </c:if>--%>
-<%--&lt;%&ndash;For displaying Page numbers. The when condition does not display--%>
-<%--            a link for the current page&ndash;%&gt;--%>
+<%--  &lt;%&ndash;For displaying Previous link except for the 1st page &ndash;%&gt;--%>
+<%--  <c:if test="${currentPage != 1}">--%>
+<%--    <td>--%>
+<%--      <a href="AnnonceFilter?page=${currentPage - 1}&title=${titre}&price=${price}&region=${region}">Previous</a>--%>
+<%--    </td>--%>
+<%--  </c:if>--%>
 
-
-<%--    <tr>--%>
-<%--        <c:forEach begin="1" end="${noOfPages}" var="i">--%>
-<%--                    <c:choose>--%>
-<%--                        <c:when test="${currentPage eq i}">--%>
-<%--                            <td>${i}</td>--%>
-<%--                        </c:when>--%>
-<%--                        <c:otherwise>--%>
-<%--                            <td><a href="myprofile?page=${i}">${i}</a></td>--%>
-<%--    </c:otherwise>--%>
-<%--    </c:choose>--%>
+<%--  <tr>--%>
+<%--    <c:forEach begin="1" end="${noOfPages}" var="i">--%>
+<%--      <c:choose>--%>
+<%--        <c:when test="${currentPage eq i}">--%>
+<%--          <td>${i}</td>--%>
+<%--        </c:when>--%>
+<%--        <c:otherwise>--%>
+<%--          <td>--%>
+<%--            <a href="AnnonceFilter?page=${i}&title=${titre}&price=${price}&region=${region}">${i}</a>--%>
+<%--          </td>--%>
+<%--        </c:otherwise>--%>
+<%--      </c:choose>--%>
 <%--    </c:forEach>--%>
-<%--    </tr>--%>
+<%--  </tr>--%>
 
 
-<%--    &lt;%&ndash;For displaying Next link &ndash;%&gt;--%>
+<%--  &lt;%&ndash;For displaying Next link &ndash;%&gt;--%>
 
-<%--    <c:if test="${currentPage lt noOfPages}">--%>
-<%--        <td><a href="myprofile?page=${currentPage + 1}">Next</a></td>--%>
-<%--    </c:if>--%>
+<%--  <c:if test="${currentPage lt noOfPages}">--%>
+<%--    <td><a href="AnnonceFilter?page=${currentPage + 1}&title=${titre}&price=${price}&region=${region}">Next</a></td>--%>
+<%--  </c:if>--%>
 <%--</table>--%>

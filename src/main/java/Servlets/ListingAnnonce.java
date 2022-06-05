@@ -72,7 +72,7 @@ public class ListingAnnonce extends HttpServlet {
         request.setAttribute("currentPage", page);
         System.out.println(list);
         RequestDispatcher view
-                = request.getRequestDispatcher("display_List_Annonce2.jsp");
+                = request.getRequestDispatcher("myProfile.jsp");
         view.forward(request, response);
     }
 }

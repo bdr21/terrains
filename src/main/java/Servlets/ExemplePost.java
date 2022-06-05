@@ -20,6 +20,7 @@ public class ExemplePost extends HttpServlet {
 
         String requestData = request.getReader().lines().collect(Collectors.joining());
         Gson gson = new Gson(); // Or use new GsonBuilder().create();
+        System.out.println(gson.fromJson("nom",String.class));
         Client target2 = gson.fromJson(requestData, Client.class);
         System.out.println(requestData);
         System.out.println(target2);
