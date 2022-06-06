@@ -17,6 +17,7 @@ public class MessageDaoImpl implements MessageDao {
     public List<Message> getMessages() {
         Connection cnx= Connect.getConnection();
         ClientDaoImpl cdi = new ClientDaoImpl();
+        AnnonceDaoImp adi = new AnnonceDaoImp();
         List<Message> lc = new ArrayList<Message>();
         try {
             Statement newST = cnx.createStatement();
@@ -25,7 +26,7 @@ public class MessageDaoImpl implements MessageDao {
                 Message cl = new Message
                         (cdi.getClient(rs.getInt("id_sender")), cdi.getClient(rs.getInt("id_receiver")),
                         rs.getTimestamp("createdAt"), rs.getString("text"),
-                        rs.getInt("id_annonce"));
+                        adi.getAnnonce(rs.getInt("id_annonce")));
                 lc.add(cl);
             }
         } catch (SQLException e) {
@@ -37,6 +38,7 @@ public class MessageDaoImpl implements MessageDao {
     public List<Message> getMessagesRestrictClient(int id_client) {
         Connection cnx= Connect.getConnection();
         ClientDaoImpl cdi = new ClientDaoImpl();
+        AnnonceDaoImp adi = new AnnonceDaoImp();
         List<Message> lc = new ArrayList<Message>();
         try {
             Statement newST = cnx.createStatement();
@@ -46,7 +48,7 @@ public class MessageDaoImpl implements MessageDao {
                 Message cl = new Message
                         (cdi.getClient(rs.getInt("id_sender")), cdi.getClient(rs.getInt("id_receiver")),
                                 rs.getTimestamp("createdAt"), rs.getString("text"),
-                                rs.getInt("id_annonce"));
+                                adi.getAnnonce(rs.getInt("id_annonce")));
                 lc.add(cl);
             }
         } catch (SQLException e) {
@@ -65,7 +67,7 @@ public class MessageDaoImpl implements MessageDao {
             newPST.setInt(1,new Random().nextInt(10000));
             newPST.setInt(2, c.getSender().getId());
             newPST.setInt(3, c.getReceiver().getId());
-            newPST.setInt(4, c.getId_annonce());
+            newPST.setInt(4, c.getAnnonce().getId());
             newPST.setTimestamp(5, c.getCreatedAt());
             newPST.setString(6, c.getText());
 
@@ -82,6 +84,7 @@ public class MessageDaoImpl implements MessageDao {
     public Message getMessage(int idc) {
         Connection cnx=Connect.getConnection();
         ClientDaoImpl cdi = new ClientDaoImpl();
+        AnnonceDaoImp adi = new AnnonceDaoImp();
         Message cl = null;
         try {
             Statement newST = cnx.createStatement();
@@ -90,7 +93,7 @@ public class MessageDaoImpl implements MessageDao {
                 cl = new Message
                         (cdi.getClient(rs.getInt("id_sender")), cdi.getClient(rs.getInt("id_receiver")),
                                 rs.getTimestamp("createdAt"), rs.getString("text"),
-                                rs.getInt("id_annonce"));
+                                adi.getAnnonce(rs.getInt("id_annonce")));
             }
         } catch (SQLException e) {
             e.printStackTrace();

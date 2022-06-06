@@ -68,7 +68,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="footer-bottom--content">
-                        <a href="" class="footer-logo"><img src="img/logo.png" alt=""></a>
+                        <a href="" class="footer-logo"><img style="height: 6rem" src="img/logo.png" alt=""></a>
                         <p class="m-0 copy-text">©2019 Direo. Made with <span class="la la-heart-o"></span> by <a href="">Aazztech</a></p>
                         <ul class="list-unstyled lng-list">
                             <li><a href="">English</a></li>

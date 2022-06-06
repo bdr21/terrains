@@ -78,6 +78,7 @@
     </div><!-- ends: .directory_search_area -->
 </section><!-- ends: .intro-wrapper -->
 <%@include file="listAnnonceFilter.jsp" %>
+<%@include file="footer.jsp"%>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0C5etf1GVmL_ldVAichWwFFVcDfa1y_c"></script>
 <!-- inject:js-->

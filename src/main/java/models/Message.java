@@ -8,7 +8,7 @@ public class Message {
     private Client receiver;
     private Timestamp createdAt;
     private String text;
-    private int id_annonce;
+    private Annonce annonce;
 
     public Message() {
     }
@@ -20,24 +20,24 @@ public class Message {
                 ", receiver=" + receiver +
                 ", createdAt=" + createdAt +
                 ", text='" + text + '\'' +
-                ", id_annonce=" + id_annonce +
+                ", annonce=" + annonce +
                 '}';
     }
 
-    public Message(Client sender, Client receiver, Timestamp createdAt, String text, int id_annonce) {
+    public Message(Client sender, Client receiver, Timestamp createdAt, String text, Annonce annonce) {
         this.sender = sender;
         this.receiver = receiver;
         this.createdAt = createdAt;
         this.text = text;
-        this.id_annonce = id_annonce;
+        this.annonce = annonce;
     }
 
-    public Message(Client sender, Client receiver, String text, int id_annonce) {
+    public Message(Client sender, Client receiver, String text, Annonce annonce) {
         this.sender = sender;
         this.receiver = receiver;
         this.createdAt = createdAt;
         this.text = text;
-        this.id_annonce = id_annonce;
+        this.annonce = annonce;
     }
 
     public Client getSender() {
@@ -72,11 +72,11 @@ public class Message {
         this.text = text;
     }
 
-    public int getId_annonce() {
-        return id_annonce;
+    public Annonce getAnnonce() {
+        return annonce;
     }
 
-    public void setId_annonce(int id_annonce) {
-        this.id_annonce = id_annonce;
+    public void setAnnonce(Annonce annonce) {
+        this.annonce = annonce;
     }
 }

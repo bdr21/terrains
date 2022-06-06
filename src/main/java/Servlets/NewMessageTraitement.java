@@ -6,6 +6,7 @@ import dao.impl.MessageDaoImpl;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
+import models.Annonce;
 import models.Client;
 import models.Message;
 import models.MessageCustom;
@@ -33,7 +34,9 @@ public class NewMessageTraitement extends HttpServlet {
         Client receiver = new Client(receiverId,null,null);
 
         MessageDaoImpl mdi = new MessageDaoImpl();
-        Message msg = new Message(sender,receiver,text,annonceId);
+        Annonce annonce = new Annonce();
+        annonce.setId(annonceId);
+        Message msg = new Message(sender,receiver,text,annonce);
         
         boolean status = mdi.addMessage(msg);
         if(status) System.out.println("message successfully registered");

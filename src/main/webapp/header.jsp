@@ -32,39 +32,6 @@
                                                 <li>
                                                     <a href="index.jsp">Home</a>
                                                 </li>
-                                                <li class="dropdown has_dropdown">
-                                                    <a href="#" class="dropdown-toggle" id="drop3" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Listings</a>
-                                                    <ul class="dropdown-menu" aria-labelledby="drop3">
-                                                        <li><a href="all-listings-grid.jsp">Listing Grid</a></li>
-                                                        <li><a href="all-listings-list.jsp">Listing List</a></li>
-                                                        <li><a href="listing-details.jsp">Listing Details</a></li>
-                                                        <li><a href="add-listing.jsp">Add Listing</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="dropdown has_dropdown">
-                                                    <a href="#" class="dropdown-toggle" id="drop4" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</a>
-                                                    <ul class="dropdown-menu" aria-labelledby="drop4">
-                                                        <li><a href="all-categories.jsp">All Categories</a></li>
-                                                        <li><a href="all-locations.jsp">All Locations</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="dropdown has_dropdown">
-                                                    <a class="dropdown-toggle" href="#" id="drop2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                        Pages
-                                                    </a>
-                                                    <ul class="dropdown-menu" aria-labelledby="drop2">
-                                                        <li><a href="author-profile.jsp">Author Profile</a></li>
-                                                        <li><a href="dashboard-listings.jsp">Author Dashboard</a></li>
-                                                        <li><a href="pricing-plans.jsp">Pricing Plans</a></li>
-                                                        <li><a href="checkout.jsp">Checkout</a></li>
-                                                        <li><a href="invoice.jsp">Invoice</a></li>
-                                                        <li><a href="faqs.jsp">FAQ</a></li>
-                                                        <li><a href="about.jsp">About</a></li>
-                                                        <li><a href="contact.jsp">Contact</a></li>
-                                                        <li><a href="cards.jsp">Products Cards</a></li>
-                                                        <li><a href="headers.jsp">Header Styles</a></li>
-                                                    </ul>
-                                                </li>
                                                 <li>
                                                     <a href="myprofile">
                                                         Mon Profil
@@ -103,11 +70,18 @@
                                                     <span class="la la-plus"></span> Add Listing
                                                 </a>
                                             </li>
-                                            <li>
-                                                <a href="authentification.jsp" class="access-link">Login</a>
-                                                <span>or</span>
-                                                <a href="authentification.jsp" class="access-link">Register</a>
-                                            </li>
+                                            <% if (session.getAttribute("currentUser") == null) { %>
+                                                <li>
+                                                    <a href="authentification.jsp" class="access-link" >Login</a>
+                                                    <span>or</span>
+                                                    <a href="authentification.jsp" class="access-link" >Register</a>
+                                                </li>
+                                            <% } %>
+                                            <% if (session.getAttribute("currentUser") != null) { %>
+                                                <div class="nav_button">
+                                                    <a href="signout" class="btn btn-secondary">Log Out</a>
+                                                </div>
+                                            <% } %>
                                         </ul>
                                     </div>
                                 </div>

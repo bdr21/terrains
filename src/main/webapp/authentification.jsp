@@ -20,7 +20,7 @@
 <img src="/assets/logo.png" alt="Logo Archi-Tech" class="logo" >
 <h2> S'AUTHENTIFIER </h2>
 <div class="container" id="container">
-  <div class="form-container sign-up-container">
+  <div id="sign-up-container" class="form-container sign-up-container">
     <form  method="POST" action="TraitementInscri">
       <h1>Créer un compte</h1>
 
@@ -38,7 +38,7 @@
       </c:if>
     </form>
   </div>
-  <div class="form-container sign-in-container">
+  <div id="sign-in-container" class="form-container sign-in-container">
     <form method="POST" action="login-traitement">
       <h1>Se connecter</h1>
       <input type="email" placeholder="Email" name="email" />

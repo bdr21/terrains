@@ -46,7 +46,7 @@
                     <article class="atbd_single_listing_wrapper">
                       <figure class="atbd_listing_thumbnail_area">
                         <div class="atbd_listing_image">
-                          <a href="">
+                          <a href="listing-details-traitement?annonceId=${annonce.id}">
                             <img src="images/annonces_thumbnails/${annonce.thumbnail}" alt="listing image">
                           </a>
                         </div><!-- ends: .atbd_listing_image -->
@@ -59,7 +59,7 @@
                       <div class="atbd_listing_info">
                         <div class="atbd_content_upper">
                           <h4 class="atbd_listing_title">
-                            <a href="">${annonce.title}</a>
+                            <a href="listing-details-traitement?annonceId=${annonce.id}">${annonce.title}</a>
                           </h4>
                           <div class="atbd_listing_meta">
                             <span class="atbd_meta atbd_listing_rating">4.5<i class="la la-star"></i></span>

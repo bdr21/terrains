@@ -50,8 +50,8 @@ public class AddListingTraitement extends HttpServlet {
         String twitter = request.getParameter("twitter");
         String facebook = request.getParameter("facebook");
         String instagram = request.getParameter("instagram");
-//        Client possesseur = (Client) request.getSession().getAttribute("currentUser");
-        Client possesseur = new Client(12345,"bdr@s.co","123456");
+        Client possesseur = (Client) request.getSession().getAttribute("currentUser");
+//        Client possesseur = new Client(12345,"bdr@s.co","123456");
         //\\
         double latitude = Double.parseDouble(request.getParameter("lat"));
         double longitude = Double.parseDouble(request.getParameter("lon"));

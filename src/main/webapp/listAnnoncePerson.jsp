@@ -1,4 +1,4 @@
-<%@ taglib prefix="j" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: fouad
@@ -6,7 +6,7 @@
   Time: 17:09
   To change this template use File | Settings | File Templates.
 --%>
-<section class="all-listing-wrapper section-bg" id="listeAnnFilterSection">
+<div class="all-listing-wrapper tab-pane fade show active" id="listings" role="tabpanel" aria-labelledby="all-listings">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -41,10 +41,10 @@
                 <div class="row">
                     <div class="col-lg-12 order-lg-1 order-0">
                         <div class="row">
-                            <j:forEach var="annonce" items="${annonceListPerson}">
-                                <div class="col-sm-4">
-                                    <div class="atbd_single_listing">
-                                        <article class="atbd_single_listing_wrapper">
+                            <c:forEach var="annonce" items="${annonceListPerson}">
+                                <div class="col-lg-4 col-sm-6">
+                                    <div class="atbd_single_listing atbd_listing_card">
+                                        <article class="atbd_single_listing_wrapper ">
                                             <figure class="atbd_listing_thumbnail_area">
                                                 <div class="atbd_listing_image">
                                                     <a href="">
@@ -82,10 +82,10 @@
                                                     </div><!-- End atbd listing meta -->
                                                 </div><!-- end .atbd_content_upper -->
                                             </div><!-- ends: .atbd_listing_info -->
-                                        </article><!-- atbd_single_listing_wrapper -->
-                                    </div>
+                                        </article>
+                                    </div><!-- ends: .atbd_single_listing -->
                                 </div>
-                            </j:forEach>
+                            </c:forEach>
                         </div>
                     </div>
                 </div>
@@ -96,34 +96,33 @@
 
                 <nav class="navigation pagination d-flex justify-content-end" role="navigation">
                     <div class="nav-links">
-                        <j:if test="${currentPage != 1}">
+                        <c:if test="${currentPage != 1}">
                             <a class="prev page-numbers" href="myprofile?page=${currentPage - 1}&ordre=${ordre}#listeAnnFilterSection">
                                 <span class="la la-long-arrow-left"></span>
                             </a>
-                        </j:if>
-                        <j:forEach begin="1" end="${noOfPages}" var="i">
-                            <j:choose>
-                                <j:when test="${currentPage eq i}">
+                        </c:if>
+                        <c:forEach begin="1" end="${noOfPages}" var="i">
+                            <c:choose>
+                                <c:when test="${currentPage eq i}">
                                     <span aria-current="page" class="page-numbers current">${i}</span>
-                                </j:when>
-                                <j:otherwise>
+                                </c:when>
+                                <c:otherwise>
                                     <a class="page-numbers" href="myprofile?page=${i}&ordre=${ordre}#listeAnnFilterSection">${i}</a>
-                                </j:otherwise>
-                            </j:choose>
-                        </j:forEach>
-                        <j:if test="${currentPage lt noOfPages}">
+                                </c:otherwise>
+                            </c:choose>
+                        </c:forEach>
+                        <c:if test="${currentPage lt noOfPages}">
                             <a class="next page-numbers" href="myprofile?page=${currentPage + 1}&ordre=${ordre}#listeAnnFilterSection">
                                 <span class="la la-long-arrow-right"></span>
                             </a>
-                        </j:if>
+                        </c:if>
 
                     </div>
                 </nav>
             </div>
         </div>
     </div>
-</section>
-
+</div>
 
 
 

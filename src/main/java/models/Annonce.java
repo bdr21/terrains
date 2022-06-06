@@ -19,6 +19,9 @@ public class Annonce {
     private String telephone_number, email, twitter, facebook, instagram;
     private String type;
 
+    public Annonce() {
+    }
+
     /*Comparator for sorting the list by Annonce Price*/
     public static Comparator<Annonce> annoncePriceComparatorAsc = new Comparator<Annonce>() {
 

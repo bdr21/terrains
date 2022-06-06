@@ -33,7 +33,7 @@ public class LoginTraitement extends HttpServlet {
             session.setAttribute("email",email);
             session.setAttribute("currentUser", currentUser);
             request.setAttribute("connecte","true");
-            view = request.getRequestDispatcher("add-listing.jsp");
+            view = request.getRequestDispatcher("index.jsp");
             view.forward(request, response);
         } else {
             request.setAttribute("connecte","false");
