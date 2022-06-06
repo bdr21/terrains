@@ -25,8 +25,8 @@
               <div class="dropdown-menu" aria-labelledby="dropdownMenuLink2">
                 <a class="dropdown-item" href="AnnonceFilter?page=${currentPage}&title=${titre}&price=${price}&region=${region}&ordre=2">A to Z ( title )</a>
                 <a class="dropdown-item" href="AnnonceFilter?page=${currentPage}&title=${titre}&price=${price}&region=${region}&ordre=3">Z to A ( title )</a>
-                <a class="dropdown-item active" href="AnnonceFilter?page=${currentPage}&title=${titre}&price=${price}&region=${region}&ordre=5">Latest listings</a>
-                <a class="dropdown-item" href="AnnonceFilter?page=${currentPage}&title=${titre}&price=${price}&region=${region}&ordre=4">Oldest listings</a>
+                <a class="dropdown-item active" href="AnnonceFilter?page=${currentPage}&title=${titre}&price=${price}&region=${region}&ordre=4">Latest listings</a>
+                <a class="dropdown-item" href="AnnonceFilter?page=${currentPage}&title=${titre}&price=${price}&region=${region}&ordre=5">Oldest listings</a>
                 <a class="dropdown-item" href="">Popular listings</a>
                 <a class="dropdown-item" href="AnnonceFilter?page=${currentPage}&title=${titre}&price=${price}&region=${region}&ordre=6">Price ( low to high )</a>
                 <a class="dropdown-item" href="AnnonceFilter?page=${currentPage}&title=${titre}&price=${price}&region=${region}&ordre=7">Price ( high to low )</a>

@@ -34,26 +34,26 @@ public class AnnonceListFilter extends HttpServlet {
             System.out.println(ordre);
             switch(ordre)
             {
-                case 1: list = dao.getAnnoncesRestrict ((page - 1) * recordsPerPage,
-                        recordsPerPage, Integer.parseInt(request.getParameter("price")), request.getParameter("title"),request.getParameter("region"));
+                case 1: list = dao.getAnnoncesFilter ((page - 1) * recordsPerPage,
+                        recordsPerPage, Integer.parseInt(request.getParameter("price")), request.getParameter("title"),request.getParameter("region"),"RAND()","",null);
                     break;
-                case 2: list = dao.getAnnoncesRestrictOrderByTitleAsc( (page - 1) * recordsPerPage,
-                        recordsPerPage, Integer.parseInt(request.getParameter("price")), request.getParameter("title"),request.getParameter("region"));
+                case 2:  list = dao.getAnnoncesFilter ((page - 1) * recordsPerPage,
+                        recordsPerPage, Integer.parseInt(request.getParameter("price")), request.getParameter("title"),request.getParameter("region"),"title","ASC",null);
                     break;
-                case 3 : list = dao.getAnnoncesRestrictOrderByTitleDesc( (page - 1) * recordsPerPage,
-                        recordsPerPage, Integer.parseInt(request.getParameter("price")), request.getParameter("title"),request.getParameter("region"));
+                case 3 :  list = dao.getAnnoncesFilter ((page - 1) * recordsPerPage,
+                        recordsPerPage, Integer.parseInt(request.getParameter("price")), request.getParameter("title"),request.getParameter("region"),"title","DESC",null);
                     break;
-                case 4: list = dao.getAnnoncesRestrictOrderByDateAsc( (page - 1) * recordsPerPage,
-                        recordsPerPage, Integer.parseInt(request.getParameter("price")), request.getParameter("title"),request.getParameter("region"));
+                case 4: list = dao.getAnnoncesFilter ((page - 1) * recordsPerPage,
+                        recordsPerPage, Integer.parseInt(request.getParameter("price")), request.getParameter("title"),request.getParameter("region"),"dateDePub","DESC",null);
                     break;
-                case 5: list = dao.getAnnoncesRestrictOrderByDateDesc ((page - 1) * recordsPerPage,
-                        recordsPerPage, Integer.parseInt(request.getParameter("price")), request.getParameter("title"),request.getParameter("region"));
+                case 5: list = dao.getAnnoncesFilter ((page - 1) * recordsPerPage,
+                        recordsPerPage, Integer.parseInt(request.getParameter("price")), request.getParameter("title"),request.getParameter("region"),"dateDePub","ASC",null);
                     break;
-                case 6: list = dao.getAnnoncesRestrictOrderByPriceAsc( (page - 1) * recordsPerPage,
-                        recordsPerPage, Integer.parseInt(request.getParameter("price")), request.getParameter("title"),request.getParameter("region"));
+                case 6: list = dao.getAnnoncesFilter ((page - 1) * recordsPerPage,
+                        recordsPerPage, Integer.parseInt(request.getParameter("price")), request.getParameter("title"),request.getParameter("region"),"price","ASC",null);
                     break;
-                case 7: list = dao.getAnnoncesRestrictOrderByPriceDesc ((page - 1) * recordsPerPage,
-                        recordsPerPage, Integer.parseInt(request.getParameter("price")), request.getParameter("title"),request.getParameter("region"));
+                case 7: list = dao.getAnnoncesFilter ((page - 1) * recordsPerPage,
+                        recordsPerPage, Integer.parseInt(request.getParameter("price")), request.getParameter("title"),request.getParameter("region"),"price","DESC",null);
                     break;
                 default:
                     System.out.println("rien n'est selectionné");
@@ -62,8 +62,8 @@ public class AnnonceListFilter extends HttpServlet {
         }
         else
         {
-            list = dao.getAnnoncesRestrict( (page - 1) * recordsPerPage,
-                    recordsPerPage, Integer.parseInt(request.getParameter("price")), request.getParameter("title"),request.getParameter("region"));
+            list = dao.getAnnoncesFilter( (page - 1) * recordsPerPage,
+                    recordsPerPage, Integer.parseInt(request.getParameter("price")), request.getParameter("title"),request.getParameter("region"),"RAND()","DESC",null);
             request.setAttribute("ordre", 1);
 
         }

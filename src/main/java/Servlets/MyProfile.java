@@ -30,8 +30,15 @@ public class MyProfile extends HttpServlet {
         List<Annonce> list = null;
         List<Message> msgs = null;
         List<Favori> favoris = null;
+        Client c =  (Client) session.getAttribute("currentUser");
+        if(c == null)
+        {
+            RequestDispatcher view
+                    = request.getRequestDispatcher("authentification.jsp");
+            view.forward(request, response);
+        }
+        {
 
-        Client c = (Client) session.getAttribute("currentUser");
 //        Client c = new Client(12345,"bdr@s.co","123456");
         if (request.getParameter("page") != null)
             page = Integer.parseInt(
@@ -39,8 +46,46 @@ public class MyProfile extends HttpServlet {
         AnnonceDaoImp dao = new AnnonceDaoImp();
         MessageDaoImpl mdi = new MessageDaoImpl();
         FavoriDaoImpl fdi = new FavoriDaoImpl();
-        list = dao.getAnnoncesRestrictPerson( (page - 1) * recordsPerPage,
-                recordsPerPage, c.getId());
+
+            if(request.getParameter("ordre")!=null)
+            {
+                int ordre = Integer.parseInt(request.getParameter("ordre"));
+                System.out.println(ordre);
+                switch(ordre)
+                {
+                    case 1: list = dao.getAnnoncesFilter ((page - 1) * recordsPerPage,
+                            recordsPerPage,Integer.MAX_VALUE, "","","RAND()","",c);
+                        break;
+                    case 2:  list = dao.getAnnoncesFilter ((page - 1) * recordsPerPage,
+                            recordsPerPage, Integer.MAX_VALUE,"","","title","ASC",c);
+                        break;
+                    case 3:  list = dao.getAnnoncesFilter ((page - 1) * recordsPerPage,
+                            recordsPerPage, Integer.MAX_VALUE,"","","title","DESC",c);
+                        break;
+                    case 4:  list = dao.getAnnoncesFilter ((page - 1) * recordsPerPage,
+                            recordsPerPage, Integer.MAX_VALUE,"","","dateDePub","DESC",c);
+                        break;
+                    case 5: list = dao.getAnnoncesFilter ((page - 1) * recordsPerPage,
+                            recordsPerPage, Integer.MAX_VALUE,"","","dateDePub","ASC",c);
+                        break;
+                    case 6: list = dao.getAnnoncesFilter ((page - 1) * recordsPerPage,
+                            recordsPerPage, Integer.MAX_VALUE,"","","price","ASC",c);
+                        break;
+                    case 7: list = dao.getAnnoncesFilter ((page - 1) * recordsPerPage,
+                            recordsPerPage, Integer.MAX_VALUE,"","","price","DESC",c);
+                        break;
+                    default:
+                        System.out.println("rien n'est selectionné");
+                }
+                request.setAttribute("ordre", request.getParameter("ordre"));
+            }
+            else
+            {
+                list = dao.getAnnoncesFilter( (page - 1) * recordsPerPage,
+                        recordsPerPage,Integer.MAX_VALUE , "","","RAND()","",c);
+                request.setAttribute("ordre", 1);
+
+            }
         msgs = mdi.getMessagesRestrictClient(c.getId());
         favoris = fdi.getFavoris(c.getId());
 
@@ -68,6 +113,7 @@ public class MyProfile extends HttpServlet {
         RequestDispatcher view
                 = request.getRequestDispatcher("myProfile.jsp");
         view.forward(request, response);
+        }
     }
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 

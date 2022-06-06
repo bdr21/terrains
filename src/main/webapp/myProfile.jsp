@@ -9,6 +9,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
+<j:if test="${empty currentUser}">
+    <j:redirect context="authentification.jsp"></j:redirect>
+</j:if>
 
 <head>
     <meta charset="UTF-8">

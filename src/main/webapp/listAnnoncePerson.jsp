@@ -24,14 +24,14 @@
                         <div class="dropdown">
                             <a class="action-btn dropdown-toggle" href="" role="button" id="dropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sort by <span class="caret"></span></a>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink2">
-                                <a class="dropdown-item" href="">A to Z ( title )</a>
-                                <a class="dropdown-item" href="">Z to A ( title )</a>
-                                <a class="dropdown-item active" href="">Latest listings</a>
-                                <a class="dropdown-item" href="">Oldest listings</a>
+                                <a class="dropdown-item" href="myprofile?page=${currentPage}&ordre=2">A to Z ( title )</a>
+                                <a class="dropdown-item" href="myprofile?page=${currentPage}&ordre=3">Z to A ( title )</a>
+                                <a class="dropdown-item active" href="AnnonceFilter?page=${currentPage}&ordre=4">Latest listings</a>
+                                <a class="dropdown-item" href="myprofile?page=${currentPage}&ordre=5">Oldest listings</a>
                                 <a class="dropdown-item" href="">Popular listings</a>
-                                <a class="dropdown-item" href="">Price ( low to high )</a>
-                                <a class="dropdown-item" href="">Price ( high to low )</a>
-                                <a class="dropdown-item" href="">Random listings</a>
+                                <a class="dropdown-item" href="myprofile?page=${currentPage}&ordre=6">Price ( low to high )</a>
+                                <a class="dropdown-item" href="myprofile?page=${currentPage}&ordre=7">Price ( high to low )</a>
+                                <a class="dropdown-item" href="myprofile?page=${currentPage}&ordre=1">Random listings</a>
                             </div>
                         </div>
                     </div><!-- ends: .atbd_listing_action_btn -->
@@ -97,7 +97,7 @@
                 <nav class="navigation pagination d-flex justify-content-end" role="navigation">
                     <div class="nav-links">
                         <j:if test="${currentPage != 1}">
-                            <a class="prev page-numbers" href="myprofile?page=${currentPage - 1}#listeAnnFilterSection">
+                            <a class="prev page-numbers" href="myprofile?page=${currentPage - 1}&ordre=${ordre}#listeAnnFilterSection">
                                 <span class="la la-long-arrow-left"></span>
                             </a>
                         </j:if>
@@ -107,15 +107,16 @@
                                     <span aria-current="page" class="page-numbers current">${i}</span>
                                 </j:when>
                                 <j:otherwise>
-                                    <a class="page-numbers" href="myprofile?page=${i}#listeAnnFilterSection">${i}</a>
+                                    <a class="page-numbers" href="myprofile?page=${i}&ordre=${ordre}#listeAnnFilterSection">${i}</a>
                                 </j:otherwise>
                             </j:choose>
                         </j:forEach>
                         <j:if test="${currentPage lt noOfPages}">
-                            <a class="next page-numbers" href="myprofile?page=${currentPage + 1}#listeAnnFilterSection">
+                            <a class="next page-numbers" href="myprofile?page=${currentPage + 1}&ordre=${ordre}#listeAnnFilterSection">
                                 <span class="la la-long-arrow-right"></span>
                             </a>
                         </j:if>
+
                     </div>
                 </nav>
             </div>
