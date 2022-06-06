@@ -23,14 +23,14 @@
             <div class="dropdown">
               <a class="action-btn dropdown-toggle" href="" role="button" id="dropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sort by <span class="caret"></span></a>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuLink2">
-                <a class="dropdown-item" href="">A to Z ( title )</a>
-                <a class="dropdown-item" href="">Z to A ( title )</a>
-                <a class="dropdown-item active" href="">Latest listings</a>
-                <a class="dropdown-item" href="">Oldest listings</a>
+                <a class="dropdown-item" href="AnnonceFilter?page=${currentPage}&title=${titre}&price=${price}&region=${region}&ordre=2">A to Z ( title )</a>
+                <a class="dropdown-item" href="AnnonceFilter?page=${currentPage}&title=${titre}&price=${price}&region=${region}&ordre=3">Z to A ( title )</a>
+                <a class="dropdown-item active" href="AnnonceFilter?page=${currentPage}&title=${titre}&price=${price}&region=${region}&ordre=5">Latest listings</a>
+                <a class="dropdown-item" href="AnnonceFilter?page=${currentPage}&title=${titre}&price=${price}&region=${region}&ordre=4">Oldest listings</a>
                 <a class="dropdown-item" href="">Popular listings</a>
-                <a class="dropdown-item" href="">Price ( low to high )</a>
-                <a class="dropdown-item" href="">Price ( high to low )</a>
-                <a class="dropdown-item" href="">Random listings</a>
+                <a class="dropdown-item" href="AnnonceFilter?page=${currentPage}&title=${titre}&price=${price}&region=${region}&ordre=6">Price ( low to high )</a>
+                <a class="dropdown-item" href="AnnonceFilter?page=${currentPage}&title=${titre}&price=${price}&region=${region}&ordre=7">Price ( high to low )</a>
+                <a class="dropdown-item" href="AnnonceFilter?page=${currentPage}&title=${titre}&price=${price}&region=${region}&ordre=1">Random listings</a>
               </div>
             </div>
           </div><!-- ends: .atbd_listing_action_btn -->
@@ -96,7 +96,7 @@
         <nav class="navigation pagination d-flex justify-content-end" role="navigation">
           <div class="nav-links">
             <c:if test="${currentPage != 1}">
-              <a class="prev page-numbers" href="AnnonceFilter?page=${currentPage - 1}&title=${titre}&price=${price}&region=${region}#listeAnnFilterSection">
+              <a class="prev page-numbers" href="AnnonceFilter?page=${currentPage - 1}&title=${titre}&price=${price}&region=${region}&ordre=${ordre}#listeAnnFilterSection">
                 <span class="la la-long-arrow-left"></span>
               </a>
             </c:if>
@@ -106,12 +106,12 @@
                   <span aria-current="page" class="page-numbers current">${i}</span>
                 </c:when>
                 <c:otherwise>
-                  <a class="page-numbers" href="AnnonceFilter?page=${i}&title=${titre}&price=${price}&region=${region}#listeAnnFilterSection">${i}</a>
+                  <a class="page-numbers" href="AnnonceFilter?page=${i}&title=${titre}&price=${price}&region=${region}&ordre=${ordre}#listeAnnFilterSection">${i}</a>
                 </c:otherwise>
               </c:choose>
             </c:forEach>
             <c:if test="${currentPage lt noOfPages}">
-              <a class="next page-numbers" href="AnnonceFilter?page=${currentPage + 1}&title=${titre}&price=${price}&region=${region}#listeAnnFilterSection">
+              <a class="next page-numbers" href="AnnonceFilter?page=${currentPage + 1}&title=${titre}&price=${price}&region=${region}&ordre=${ordre}#listeAnnFilterSection">
                 <span class="la la-long-arrow-right"></span>
               </a>
             </c:if>

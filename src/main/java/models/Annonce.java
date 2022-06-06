@@ -43,8 +43,52 @@ public class Annonce {
             //descending order
             return priceAnnonce2-priceAnnonce1;
         }};
+    /*Comparator for sorting the list by Annnonce Title*/
+    public static Comparator<Annonce> annonceComparatorTitleAsc = new Comparator<Annonce>() {
 
+        public int compare(Annonce s1, Annonce s2) {
+            String titleAnnonce1 = s1.getTitle().toUpperCase();
+            String titleAnnonce2 = s2.getTitle().toUpperCase();
 
+            //ascending order
+            return titleAnnonce1.compareTo(titleAnnonce2);
+
+        }};
+
+    /*Comparator for sorting the list by Annoonce Title*/
+    public static Comparator<Annonce> annonceComparatorTitleDesc = new Comparator<Annonce>() {
+
+        public int compare(Annonce s1, Annonce s2) {
+            String titleAnnonce1 = s1.getTitle().toUpperCase();
+            String titleAnnonce2 = s2.getTitle().toUpperCase();
+
+            //descending order
+            return titleAnnonce1.compareTo(titleAnnonce2);
+        }};
+
+    /*Comparator for sorting the list by Annnonce Date*/
+    public static Comparator<Annonce> annonceComparatorDateAsc = new Comparator<Annonce>() {
+
+        public int compare(Annonce s1, Annonce s2) {
+            Timestamp annonceDate1 = s1.getDateDePub();
+            Timestamp annonceDate2 = s2.getDateDePub();
+
+            //ascending order
+            return annonceDate2.compareTo(annonceDate1);
+
+        }};
+
+    /*Comparator for sorting the list by Annnonce Date*/
+    public static Comparator<Annonce> annonceComparatorDateDes = new Comparator<Annonce>() {
+
+        public int compare(Annonce s1, Annonce s2) {
+            Timestamp annonceDate1 = s1.getDateDePub();
+            Timestamp annonceDate2 = s2.getDateDePub();
+
+            //ascending order
+            return annonceDate1.compareTo(annonceDate2);
+
+        }};
     public Annonce(int id, Client possesseur, String type, Timestamp dateDePub) {
         this.id = id;
         this.possesseur = possesseur;
