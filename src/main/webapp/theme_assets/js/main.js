@@ -11,7 +11,7 @@
     // initialize select 2
     $(document).ready(function () {
         $("#at_biz_dir-category").select2({
-            placeholder: "Select a category",
+            placeholder: "Sélectionnez une région",
             width: "100%",
             containerCssClass: "form-control"
         });

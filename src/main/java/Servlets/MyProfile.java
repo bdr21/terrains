@@ -2,10 +2,7 @@ package Servlets;
 
 import dao.AnnonceDao;
 import dao.ClientDao;
-import dao.impl.AnnonceDaoImp;
-import dao.impl.ClientDaoImpl;
-import dao.impl.FavoriDaoImpl;
-import dao.impl.MessageDaoImpl;
+import dao.impl.*;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -31,6 +28,13 @@ public class MyProfile extends HttpServlet {
         List<Message> msgs = null;
         List<Favori> favoris = null;
         Client c =  (Client) session.getAttribute("currentUser");
+
+        double poster_avg_rating = new RatingDaoImpl().getRatingCalc(c.getId());
+        int poster_rating_count = new RatingDaoImpl().getRatingCount(c.getId());
+
+        request.setAttribute("poster_rating_avg",poster_avg_rating);
+        request.setAttribute("poster_rating_count",poster_rating_count);
+
         if(c == null)
         {
             RequestDispatcher view

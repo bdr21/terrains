@@ -152,13 +152,13 @@
                                 <img src="img/author-profile.jpg" alt="Author Image">
                                 <div class="atbd_auth_nd">
                                     <h2>${currentUser.nom} ${currentUser.prenom}</h2>
-                                    <p>Joined in March 2019</p>
+<%--                                    <p>Joined in March 2019</p>--%>
                                 </div>
                             </div><!-- ends: .atbd_author_avatar -->
                             <div class="atbd_author_meta">
                                 <div class="atbd_listing_meta">
-                                    <span class="atbd_meta atbd_listing_rating">4.5 <i class="la la-star"></i></span>
-                                    <p class="meta-info"><span>22</span>Reviews</p>
+                                    <span class="atbd_meta atbd_listing_rating">${poster_rating_avg} <i class="la la-star"></i></span>
+                                    <p class="meta-info"><span>${poster_rating_count}</span>Reviews</p>
                                 </div>
                                 <p class="meta-info"><span>${nbrAnnonces}</span>Listings</p>
                             </div><!-- ends: .atbd_author_meta -->

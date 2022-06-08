@@ -17,7 +17,7 @@
                         <div class="menu-fullwidth">
                             <div class="logo-wrapper order-lg-0 order-sm-1">
                                 <div class="logo logo-top">
-                                    <a href="index.jsp"><img src="img/logo-white.png" alt="logo image" class="img-fluid"></a>
+                                    <a href="index.jsp"><img style="height: 5rem;" src="images/logo-removebg.png" alt="logo image" class="img-fluid"></a>
                                 </div>
                             </div><!-- ends: .logo-wrapper -->
                             <div class="menu-container order-lg-1 order-sm-0">

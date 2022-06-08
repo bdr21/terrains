@@ -16,9 +16,9 @@
           </div><!-- ends: .atbd_generic_header_title -->
           <div class="atbd_listing_action_btn btn-toolbar" role="toolbar">
             <!-- Views dropdown -->
-            <div class="view-mode">
-              <a class="action-btn active" href="brouillon/all-listings-grid.html"><span class="la la-th-large"></span></a><a class="action-btn" href="../../../../direohtml/src/all-listings-list.html"><span class="la la-list"></span></a>
-            </div>
+<%--            <div class="view-mode">--%>
+<%--              <a class="action-btn active" href="brouillon/all-listings-grid.html"><span class="la la-th-large"></span></a><a class="action-btn" href="../../../../direohtml/src/all-listings-list.html"><span class="la la-list"></span></a>--%>
+<%--            </div>--%>
             <!-- Orderby dropdown -->
             <div class="dropdown">
               <a class="action-btn dropdown-toggle" href="" role="button" id="dropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sort by <span class="caret"></span></a>
