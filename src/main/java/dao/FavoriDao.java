@@ -9,6 +9,7 @@ public interface FavoriDao {
     boolean deleteFavori(int idf);
     List<Favori> getFavoris();
     List<Favori> getFavoris(int id_client);
+    Favori getFavori(int id_favori);
 }
 
 

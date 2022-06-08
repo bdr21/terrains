@@ -33,8 +33,7 @@ public class LoginTraitement extends HttpServlet {
             session.setAttribute("email",email);
             session.setAttribute("currentUser", currentUser);
             request.setAttribute("connecte","true");
-            view = request.getRequestDispatcher("index.jsp");
-            view.forward(request, response);
+            response.sendRedirect("index.jsp");
         } else {
             request.setAttribute("connecte","false");
             view = request.getRequestDispatcher("authentification.jsp");

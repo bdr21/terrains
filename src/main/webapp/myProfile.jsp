@@ -260,7 +260,7 @@
                                             </thead>
                                             <tbody>
                                             <c:forEach items="${favoris}" var="fav">
-                                                <tr>
+                                                <tr id="${fav.id}">
                                                     <td><a href="">${fav.annonce.title}</a></td>
                                                     <td>
                                                         <img style="height: 5rem" src="images/annonces_thumbnails/${fav.annonce.thumbnail}"/>
@@ -269,7 +269,7 @@
                                                             <img style="height: 5rem" src="images/annonces_galleries/${gal}"/>
                                                         </c:forEach>
                                                     </td>
-                                                    <td><a href="" class="remove-favorite"><span class="la la-times"></span></a></td>
+                                                    <td><a onclick="supprimerFav(this)" data-id="${fav.id}" class="remove-favorite"><span class="la la-times"></span></a></td>
                                                 </tr>
                                             </c:forEach>
                                             </tbody>
@@ -478,7 +478,19 @@
         xmlhttp.open("GET", "viewConversation?avecQui="+e.getAttribute("data-id"),true);
         xmlhttp.send();
     }
-
+    function supprimerFav(e)
+    {
+        let xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange=function()
+        {
+            if (this.readyState==4){
+                console.log("bien supprimé")
+                document.getElementById(e.getAttribute("data-id")).remove()
+            }
+        }
+        xmlhttp.open("GET", "delete-favori?id-favori="+e.getAttribute("data-id"),true);
+        xmlhttp.send();
+    }
 </script>
 
 </script>

@@ -83,4 +83,20 @@ public class FavoriDaoImpl implements FavoriDao {
         }
         return lc;
     }
+    @Override
+    public Favori getFavori(int id_favori) {
+        Connection cnx= Connect.getConnection();
+        AnnonceDaoImp adi = new AnnonceDaoImp();
+        Favori cl = null;
+        try {
+            Statement newST = cnx.createStatement();
+            ResultSet rs = newST.executeQuery("Select * from Favoris where id = " + id_favori );
+            if(rs.next())
+             cl = new Favori
+                    (rs.getInt("id"), rs.getInt("id_client"), adi.getAnnonce(rs.getInt("id_annonce")));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return cl;
+    }
 }
