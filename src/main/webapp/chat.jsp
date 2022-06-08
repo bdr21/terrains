@@ -1,4 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:if test="${empty currentUser}">
+  <c:redirect url="authentification.jsp"></c:redirect>
+</c:if>
 <!DOCTYPE html>
 <html>
 <head>

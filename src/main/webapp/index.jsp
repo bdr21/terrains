@@ -48,7 +48,7 @@
                 <input value="" class="form-control search_fields" type="text" placeholder="chercher par titre?" name="title" >
               </div>
               <div class="single_search_field search_category">
-                <select class="search_fields" id="at_biz_dir-category" name="region" required>
+                <select placeholder="select a region" class="search_fields" id="at_biz_dir-category" name="region" required>
                   <option value="Rabat">Rabat, Salé, Kénitra</option>
                   <option value="Casablanca">Casablanca, Settat</option>
                   <option value="Fès">Fès, Meknès</option>

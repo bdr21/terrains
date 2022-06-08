@@ -7,6 +7,9 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<c:if test="${not empty currentUser}">
+  <c:redirect url="index.jsp"></c:redirect>
+</c:if>
 <!DOCTYPE html>
 <html lang="en" >
 <head>
@@ -17,7 +20,7 @@
 
 </head>
 <body>
-<img src="/assets/logo.png" alt="Logo Archi-Tech" class="logo" >
+<img src="images/logo.png" alt="Logo Archi-Tech" class="logo" >
 <h2> S'AUTHENTIFIER </h2>
 <div class="container" id="container">
   <div id="sign-up-container" class="form-container sign-up-container">
@@ -30,12 +33,13 @@
       <input type="password" placeholder="Mot de passe" name="password" required />
       <input type="text" placeholder="Adresse" name="adresse" required />
       <button>S'inscrire</button>
-      <c:if test="${inscrit=='true'}">
+      <p><c:if test="${inscrit eq 'true'}">
         <c:out value="Vous êtes bien inscrit"></c:out>
       </c:if>
-      <c:if test="${inscrit=='false'}">
+      <c:if test="${inscrit eq 'false'}">
         <c:out value="Vous n'êtes pas bien inscrit ! email déjà utilisé"></c:out>
       </c:if>
+      </p>
     </form>
   </div>
   <div id="sign-in-container" class="form-container sign-in-container">
@@ -45,13 +49,19 @@
       <input type="password" placeholder="Mot de passe" name="password" />
       <a href="#" class="forgot-password">Mot de passe oublié ?</a>
       <button>Se connecter</button>
-      <c:if test="${connecte=='false'}">
+      <p>
+      <c:if test="${inscrit eq 'true'}">
+        <c:out value="Vous êtes bien inscrit"></c:out>
+      </c:if>
+      <c:if test="${inscrit eq 'false'}">
+        <c:out value="Vous n'êtes pas bien inscrit ! email déjà utilisé"></c:out>
+      </c:if>
+      </p>
+      <p>
+      <c:if test="${connecte eq 'false'}">
         <c:out value="Vous n'êtes pas bien connecté ! Vérifier les données saisies"></c:out>
       </c:if>
-      <c:if test="${inscrit=='false'}">
-        <c:out value="Vous n'êtes pas bien inscrit"></c:out>
-        <c:remove var="inscrit"/>
-      </c:if>
+      </p>
     </form>
   </div>
   <div class="overlay-container">
@@ -63,7 +73,7 @@
 
       </div>
       <div class="overlay-panel overlay-right">
-        <h1>Salut, cher dev !</h1>
+        <h1>Salut, cher client !</h1>
         <p>Entrez vos données personnelles et commencez votre expérience avec nous</p>
         <button class="ghost" id="signUp">S'inscrire</button>
       </div>
