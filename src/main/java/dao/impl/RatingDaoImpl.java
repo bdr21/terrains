@@ -16,12 +16,12 @@ public class RatingDaoImpl implements RatingDao {
         Connection cnx= Connect.getConnection();
         Random rand = new Random();
         try {
-            PreparedStatement newPST = cnx.prepareStatement("insert into ratings values (?,?,?)");
+            PreparedStatement newPST = cnx.prepareStatement("insert into ratings values (?,?,?,?,?)");
             newPST.setInt(1,new Random().nextInt(10000));
             newPST.setInt(2, c.getRater().getId());
             newPST.setInt(3, c.getRated().getId());
-            newPST.setFloat(3, c.getRating());
-            newPST.setInt(3, c.getRated().getId());
+            newPST.setFloat(4, c.getRating());
+            newPST.setInt(5, c.getRated().getId());
 
             int success = newPST.executeUpdate();
             if (success == 1) return true;

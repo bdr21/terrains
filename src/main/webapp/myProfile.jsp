@@ -390,51 +390,79 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="chat">
-            <!-- <c:choose>
-                <c:when test="${not empty messages}">
-                    <c:forEach var="msg" items="${messages}">
+            <div class="comments-area">
+                <div class="comment-lists">
+                    <ul class="media-list list-unstyled">
                         <c:choose>
-                            <c:when test="${msg.receiver.id == currentUser.getId()}">
-                                <div class="container1 darker">
-                                    <img src="/w3images/avatar_g2.jpg" alt="Avatar" class="right" style="width:100%;">
-                                    <p>${msg.getText()}</p>
-                                    <span class="time-left">${msg.getCreatedAt()}</span>
-                                </div>
+                            <c:when test="${not empty messages}">
+                                <c:forEach var="msg" items="${messages}">
+                                    <c:choose>
+                                    <c:when test="${msg.receiver.id == currentUser.getId()}">
+                                        <li class="depth-1" style="margin-bottom: 0">
+                                            <div class="media">
+                                                <div>
+                                                    <a href="" class="cmnt_avatar">
+                                                        <img src="images/avatar-60x60.jpg" alt="" class="media-object rounded-circle">
+                                                    </a>
+                                                </div>
+                                                <div class="media-body">
+                                                    <div class="media_top">
+                                                        <div class="heading_left">
+                                                            <a href="#">
+                                                                <h6 class="media-heading">👉 : ${msg.sender.nom} ${msg.sender.prenom}</h6>
+                                                                <h6 class="media-heading">✉️ : ${msg.sender.email}</h6>
+                                                            </a>
+                                                            <span>⏳ : ${msg.getCreatedAt()}</span>
+                                                        </div>
+                                                    </div>
+                                                    <p>📝 : ${msg.getText()}</p>
+                                                </div>
+                                            </div><!-- ends: .media -->
+                                        </li>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <li class="depth-1" style="margin-bottom: 0; border : '1px solid #e3e6ef'">
+                                            <div class="media">
+                                                <div style="order : 2">
+                                                    <a href="" class="cmnt_avatar">
+                                                        <img src="images/avatar-60x60.jpg" alt="" class="media-object rounded-circle">
+                                                    </a>
+                                                </div>
+                                                <div class="media-body">
+                                                    <div class="media_top">
+                                                        <div class="heading_left">
+                                                            <a href="#">
+                                                                <h6 class="media-heading">👉 : ${msg.sender.nom} ${msg.sender.prenom}</h6>
+                                                                <h6 class="media-heading">✉️ : ${msg.sender.email}</h6>
+                                                            </a>
+                                                            <span>⏳ : ${msg.getCreatedAt()}</span>
+                                                        </div>
+                                                    </div>
+                                                    <p>📝 : ${msg.getText()}</p>
+                                                </div>
+                                            </div><!-- ends: .media -->
+                                        </li>
+                                    </c:otherwise>
+                                    </c:choose>
+                                </c:forEach>
                             </c:when>
                             <c:otherwise>
-                                <div class="container1">
-                                    <img src="/w3images/bandmember.jpg" alt="Avatar" style="width:100%;">
-                                    <p>${msg.getText()}</p>
-                                    <span class="time-left">${msg.getCreatedAt()}</span>
-                                </div>
+                                <li class="depth-1">
+                                    <div class="media">
+                                        <div class="media-body">
+                                            <div class="media_top">
+                                            </div>
+                                            <p>Pas de messages trouvés.</p>
+                                        </div>
+                                    </div><!-- ends: .media -->
+                                </li><!-- ends: .depth-1 -->
                             </c:otherwise>
                         </c:choose>
-                    </c:forEach>
-                </c:when>
-                <c:otherwise>
-                    <section class="about-contents section-padding">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-lg-12 contents-wrapper">
-                                    <div class="contents">
-                                        <div class="row align-items-center">
-                                            <div class="col-lg-5 col-sm-6">
-                                                <img src="images/oups-image.png" alt="404">
-                                            </div>
-                                            <div class="col-lg-6 offset-lg-1 col-sm-6 mt-5 mt-md-0">
-                                                <h1>Oups ! rien n'est trouvé</h1>
-                                                <p>Essayer de rafraichir la page </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                </c:otherwise>
-            </c:choose>
-            -->
+                    </ul><!-- ends: .media-list -->
+                </div><!-- ends: .comment-lists -->
+                <div class="text-center m-top-50">
+                    <a style="cursor: default; color: #903af9" data-dismiss="modal" aria-label="Close" class="m-bottom-15 btn btn-outline-secondary btn-icon icon-left"><i class="la la-lock"></i>Fin</a>
+                </div>
             </div>
         </div>
     </div>
@@ -516,3 +544,50 @@
 </body>
 
 </html>
+
+
+<%--<div class="chat">--%>
+<%--    <c:choose>--%>
+<%--        <c:when test="${not empty messages}">--%>
+<%--            <c:forEach var="msg" items="${messages}">--%>
+<%--                <c:choose>--%>
+<%--                    <c:when test="${msg.receiver.id == currentUser.getId()}">--%>
+<%--                        <div class="container1 darker">--%>
+<%--                            <img src="/w3images/avatar_g2.jpg" alt="Avatar" class="right" style="width:100%;">--%>
+<%--                            <p>${msg.getText()}</p>--%>
+<%--                            <span class="time-left">${msg.getCreatedAt()}</span>--%>
+<%--                        </div>--%>
+<%--                    </c:when>--%>
+<%--                    <c:otherwise>--%>
+<%--                        <div class="container1">--%>
+<%--                            <img src="/w3images/bandmember.jpg" alt="Avatar" style="width:100%;">--%>
+<%--                            <p>${msg.getText()}</p>--%>
+<%--                            <span class="time-left">${msg.getCreatedAt()}</span>--%>
+<%--                        </div>--%>
+<%--                    </c:otherwise>--%>
+<%--                </c:choose>--%>
+<%--            </c:forEach>--%>
+<%--        </c:when>--%>
+<%--        <c:otherwise>--%>
+<%--            <section class="about-contents section-padding">--%>
+<%--                <div class="container">--%>
+<%--                    <div class="row">--%>
+<%--                        <div class="col-lg-12 contents-wrapper">--%>
+<%--                            <div class="contents">--%>
+<%--                                <div class="row align-items-center">--%>
+<%--                                    <div class="col-lg-5 col-sm-6">--%>
+<%--                                        <img src="images/oups-image.png" alt="404">--%>
+<%--                                    </div>--%>
+<%--                                    <div class="col-lg-6 offset-lg-1 col-sm-6 mt-5 mt-md-0">--%>
+<%--                                        <h1>Oups ! rien n'est trouvé</h1>--%>
+<%--                                        <p>Essayer de rafraichir la page </p>--%>
+<%--                                    </div>--%>
+<%--                                </div>--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
+<%--                </div>--%>
+<%--            </section>--%>
+<%--        </c:otherwise>--%>
+<%--    </c:choose>--%>
+<%--</div>--%>
