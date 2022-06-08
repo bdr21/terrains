@@ -12,18 +12,19 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-
+import java.util.Date;
 public class AnnonceDaoImp implements AnnonceDao {
     private int noOfRecords;
     @Override
     public boolean addAnnonce(Annonce c) {
         Connection cnx= Connect.getConnection();
         Random rand = new Random();
+        Date date= new Date();
         try {
             PreparedStatement newPST = cnx.prepareStatement("insert into annonce values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
             newPST.setInt(1, rand.nextInt(100000));
             newPST.setString(2, c.getTitle());
-            newPST.setTimestamp(3, c.getDateDePub());
+            newPST.setTimestamp(3, new Timestamp(date.getTime()));
             newPST.setInt(4, c.getPossesseur().getId());
             newPST.setString(5, c.getDescription());
             newPST.setString(6, c.getTags());

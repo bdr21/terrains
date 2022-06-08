@@ -57,7 +57,7 @@
                                                             <li><a href="all-listings-grid.html">Listing Grid</a></li>
                                                             <li><a href="all-listings-list.html">Listing List</a></li>
                                                             <li><a href="listing-details.html">Listing Details</a></li>
-                                                            <li><a href="add-listing.html">Add Listing</a></li>
+                                                            <li><a href="../add-listing.html">Add Listing</a></li>
                                                         </ul>
                                                     </li>
                                                     <li class="dropdown has_dropdown">
@@ -137,7 +137,7 @@
                                         <div class="author__access_area">
                                             <ul class="d-flex list-unstyled align-items-center">
                                                 <li>
-                                                    <a href="add-listing.html" class="btn btn-xs btn-gradient btn-gradient-two">
+                                                    <a href="../add-listing.html" class="btn btn-xs btn-gradient btn-gradient-two">
                                                         <span class="la la-plus"></span> Add Listing
                                                     </a>
                                                 </li>
@@ -161,7 +161,7 @@
                                                 <li><a href="dashboard-listings.html">My Profile</a></li>
                                                 <li><a href="dashboard-listings.html">My Listing</a></li>
                                                 <li><a href="dashboard-listings.html">Favorite Listing</a></li>
-                                                <li><a href="add-listing.html">Add Listing</a></li>
+                                                <li><a href="../add-listing.html">Add Listing</a></li>
                                                 <li><a href="">Logout</a></li>
                                             </ul>
                                             <div class="search_area">

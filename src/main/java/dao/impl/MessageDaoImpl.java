@@ -43,7 +43,29 @@ public class MessageDaoImpl implements MessageDao {
         try {
             Statement newST = cnx.createStatement();
             ResultSet rs = newST.executeQuery("Select * from Messages where id_sender = " + id_client +
-                    " or id_receiver = "+ id_client);
+                    " or id_receiver = "+ id_client+" order by createdAt");
+            while (rs.next()) {
+                Message cl = new Message
+                        (cdi.getClient(rs.getInt("id_sender")), cdi.getClient(rs.getInt("id_receiver")),
+                                rs.getTimestamp("createdAt"), rs.getString("text"),
+                                adi.getAnnonce(rs.getInt("id_annonce")));
+                lc.add(cl);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return lc;
+    }
+
+    public List<Message> getMessagesRestrictSenderReceiver(int id1,int id2) {
+        Connection cnx= Connect.getConnection();
+        ClientDaoImpl cdi = new ClientDaoImpl();
+        AnnonceDaoImp adi = new AnnonceDaoImp();
+        List<Message> lc = new ArrayList<Message>();
+        try {
+            Statement newST = cnx.createStatement();
+            ResultSet rs = newST.executeQuery("Select * from Messages where id_sender = " + id1 +
+                    " AND id_receiver = "+ id2+" or id_sender ="+ id2 +" AND id_receiver = "+ id1 +" order by  createdAt");
             while (rs.next()) {
                 Message cl = new Message
                         (cdi.getClient(rs.getInt("id_sender")), cdi.getClient(rs.getInt("id_receiver")),

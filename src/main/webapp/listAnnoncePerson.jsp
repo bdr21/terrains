@@ -112,7 +112,7 @@
                             </c:choose>
                         </c:forEach>
                         <c:if test="${currentPage lt noOfPages}">
-                            <a class="next page-numbers" href="myprofile?page=${currentPage + 1}&ordre=${ordre}#listeAnnFilterSection">
+                            <a class="next page-numbers" href="myprofile?page=${currentPage + 1}#listeAnnFilterSection">
                                 <span class="la la-long-arrow-right"></span>
                             </a>
                         </c:if>
