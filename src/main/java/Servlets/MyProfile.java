@@ -29,18 +29,20 @@ public class MyProfile extends HttpServlet {
         List<Favori> favoris = null;
         Client c =  (Client) session.getAttribute("currentUser");
 
-        double poster_avg_rating = new RatingDaoImpl().getRatingCalc(c.getId());
-        int poster_rating_count = new RatingDaoImpl().getRatingCount(c.getId());
-
-        request.setAttribute("poster_rating_avg",poster_avg_rating);
-        request.setAttribute("poster_rating_count",poster_rating_count);
-
         if(c == null)
         {
             RequestDispatcher view
                     = request.getRequestDispatcher("authentification.jsp");
             view.forward(request, response);
         }
+
+        double poster_avg_rating = new RatingDaoImpl().getRatingCalc(c.getId());
+        int poster_rating_count = new RatingDaoImpl().getRatingCount(c.getId());
+
+        request.setAttribute("poster_rating_avg",poster_avg_rating);
+        request.setAttribute("poster_rating_count",poster_rating_count);
+
+
         {
 
 //        Client c = new Client(12345,"bdr@s.co","123456");

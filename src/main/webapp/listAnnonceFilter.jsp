@@ -62,9 +62,9 @@
                             <a href="listing-details-traitement?annonceId=${annonce.id}">${annonce.title}</a>
                           </h4>
                           <div class="atbd_listing_meta">
-                            <span class="atbd_meta atbd_listing_rating">4.5<i class="la la-star"></i></span>
+<%--                            <span class="atbd_meta atbd_listing_rating"><i class="la la-star"></i></span>--%>
                             <span class="atbd_meta atbd_listing_price">${annonce.price}dhs</span>
-                            <span class="atbd_meta atbd_badge_open"></span>
+<%--                            <span class="atbd_meta atbd_badge_open"></span>--%>
                           </div><!-- End atbd listing meta -->
                           <div class="atbd_listing_data_list">
                             <ul>
